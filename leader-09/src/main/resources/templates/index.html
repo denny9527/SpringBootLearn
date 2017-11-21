@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Leader私塾</title>
+
+<!-- Bootstrap Core CSS -->
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link th:href="@{/css/bootstrap-table.min.css}" rel="stylesheet">
+
+<link th:href="@{/css/signin.css}" rel="stylesheet">
+<link
+	th:href="@{/components/bootstrapvalidator/css/bootstrapValidator.min.css}"
+	rel="stylesheet">
+<link
+	th:href="@{/components/bootstrap3-dialog/css/bootstrap-dialog.min.css}"
+	rel="stylesheet">
+<link th:href="@{/css/signin.css}" rel="stylesheet">
+<style>
+body {
+	padding-top: 70px;
+	/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+</style>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<!-- jQuery Version 1.11.1 -->
+<script th:src="@{/components/jquery/jquery.js}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script th:src="@{/components/bootstrap/bootstrap.min.js}"></script>
+
+<!--  bootstrap-table -->
+<script th:src="@{/components/bootstrap-table/bootstrap-table.min.js}"></script>
+<script
+	th:src="@{/components/bootstrap-table/bootstrap-table-locale-all.min.js}"></script>
+<script
+	th:src="@{/components/bootstrapvalidator/js/bootstrapValidator.min.js}"></script>
+<script
+	th:src="@{/components/bootstrap3-dialog/js/bootstrap-dialog.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/components/bootbox/bootbox.min.js}"></script>
+<script th:src="@{/js/index.js}"></script>
+<script th:src="@{/js/ldhomework/user-login.js}"></script>
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Leader私塾后台</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li data-page="/"><a href="#">首页</a></li>
+					<li data-page="ldhomework/my_homework_page"><a href="#">我的作业</a></li>
+					<li data-page="ldhomework/upload_page"><a href="#">上传作业</a></li>
+					<li data-page="ldhomeworkFB/homework_list_page"><a href="#">批改作业</a></li>
+					<li data-page="user/regist_page"><a href="#">用户注册</a></li>
+					<li data-page="user/logout"><a href="#">退出</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container -->
+	</nav>
+
+	<!-- Page Content -->
+	<div class="container" id="bodymain">
+		<div class="row" th:unless="${session.user_info == null}">
+			<div class="col-lg-12 text-center">
+				<h1 th:text="${'欢迎您：'+session.user_info.userAccount}"></h1>
+			</div>
+		</div>
+		<div id="userLoginDiv" th:unless="${session.user_info != null}">
+			<form class="form-signin" id="userLoginForm" method="post">
+				<h2 class="form-signin-heading">用户登录</h2>
+				<hr class="colorgraph">
+				<div class="form-group">
+					<label for="inputEmail" class="sr-only">用户名</label> <input
+						type="account" id="inputUserAccount" class="form-control"
+						name="userAccount" placeholder="用户名" required autofocus>
+				</div>
+				<div class="form-group">
+					<label for="inputPassword" class="sr-only">密码</label> <input
+						type="password" id="inputPassword" class="form-control"
+						name="password" placeholder="密码" required>
+				</div>
+				<!-- <div class="checkbox">
+				<label> <input type="checkbox" value="remember-me">
+					Remember me
+				</label>
+			</div> -->
+			</form>
+			<div align="center">
+				<button class="btn btn-lg btn-primary btn-block" id="loginButton"
+					style="width: 300px">登 录</button>
+			</div>
+		</div>
+	</div>
+	<!-- /.container -->
+
+</body>
+
+</html>

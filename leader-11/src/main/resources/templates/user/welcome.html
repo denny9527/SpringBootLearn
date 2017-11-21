@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head th:replace="~{user/common/layout :: header}">
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav head th:replace="~{user/common/layout :: nav}">
+	</nav>
+
+	<!-- Page Content -->
+	<div class="container" id="bodymain">
+		<div class="row" th:unless="${userName == null}">
+			<div class="col-lg-12 text-center">
+				<h1 th:text="${'欢迎您:'+userName}"></h1>
+			</div>
+		</div>
+	</div>
+	<!-- /.container -->
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!--  bootstrap-table -->
+<script th:src="@{/components/bootstrap-table/bootstrap-table.min.js}"></script>
+<script th:src="@{/components/bootstrap-table/bootstrap-table-locale-all.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/components/bootbox/bootbox.min.js}"></script>
+<script th:src="@{/components/bootstrap-table/bootstrap-table-locale-all.min.js}"></script>
+<script th:src="@{/js/ldhomework/correct-ldhomework-list.js}"></script>
+<script th:src="@{/js/ldhomework/ldhomework-upload.js}"></script>
+</head>
+<body>
+	<fieldset>
+		<legend>
+			<!-- 			<button id="uploadeButton" name="uploadeButton" class="btn btn-success">上传作业</button> -->
+			作业列表
+		</legend>
+	</fieldset>
+	<table id="ldhomework-table" data-toggle="table"
+		data-url="ldhomeworkFB/correct_homework_list">
+		<thead>
+			<tr>
+				<th data-field="lessonName">课程</th>
+				<th data-field="userAccount">学员账号</th>
+				<th data-field="userName">学员姓名</th>
+				<th data-field="className">班级</th>
+				<th data-formatter="downloadLinkFormatter">作业</th>
+				<th data-field="starCount">点赞数</th>
+				<th data-field="negativeCount">差评数</th>
+				<th data-field="bestFlagStr">是否优秀作业</th>
+				<th data-formatter="appraiseFormatter">是否批改</th>
+				<th data-field="createDateStr">提交时间</th>
+				<th data-formatter="operFormatter" data-events="actionEvents">操作</th>
+			</tr>
+		</thead>
+	</table>
+<!-- 	<div style="display:none" id="correctHomeworkDiv"> -->
+<!--  		<form class="form-horizontal" id="correctHomeworkForm" method="post" action=""> -->
+<!--  			<fieldset> -->
+
+<!--  				Form Name
+<!-- 			<legend>作业评价</legend> -->
+
+<!-- 				Select Basic -->
+<!-- 				<div class="form-group" > -->
+<!-- 					<label class="col-md-4 control-label" for="levelFlag">作业等级</label> -->
+<!-- 					<div class="col-md-4">
+<!-- 							<select id="levelFlag" name="levelFlag" class="form-control">
+							<option value="A">A</option>
+							<option value="B">B</option>
+							<option value="C">C</option>
+							<option value="D">D</option> -->
+<!-- 						</select> -->
+<!-- 						<input type="hidden" name="homeworkId" id="homeworkId" /> -->
+<!-- 						<input type="hidden" name="userId" id="userId" /> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+
+<!--  				Multiple Radios (inline) -->
+<!-- 				<div class="form-group"> -->
+<!-- 					<label class="col-md-4 control-label" for="appraise">评价</label> -->
+<!-- 					<div class="col-md-4"> -->
+<!-- 						<label class="radio-inline" for="appraiseFlag-0"> <input -->
+<!-- 							type="radio" name="appraiseFlag" id="appraiseFlag-0" value="1" -->
+<!-- 							checked="checked"> 点赞 -->
+<!-- 						</label> <label class="radio-inline" for="appraiseFlag-1"> <input -->
+<!-- 							type="radio" name="appraiseFlag" id="appraiseFlag-1" value="0"> -->
+<!-- 							差评 -->
+<!-- 						</label> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+
+<!-- 				Textarea -->
+<!-- 				<div class="form-group"> -->
+<!-- 					<label class="col-md-4 control-label" for="mark">评语</label> -->
+<!-- 					<div class="col-md-4"> -->
+<!-- 						<textarea rows="15" cols="30" id="mark" name="mark"></textarea> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</fieldset> -->
+<!-- 		</form> -->
+
+<!-- 	</div> -->
+<!-- 	<div id="appraiseListDiv" style="display:none"> -->
+<!-- 		<table id="appraiseTable"> -->
+<!-- 			<thead> -->
+<!-- 				<tr> -->
+<!-- 					<th data-field="appraiseUserAccount">学员账号</th> -->
+<!-- 					<th data-field="appraiseUserName">学员姓名</th> -->
+<!-- 					<th data-formatter="appraise">评价</th> -->
+<!-- 					<th data-field="level">作业等级</th> -->
+<!-- 					<th data-field="mark">评语</th> -->
+<!-- 					<th data-field="createDateStr">提交时间</th> -->
+<!-- 				</tr> -->
+<!-- 			</thead> -->
+<!-- 		</table> -->
+<!-- 	</div> -->
+</body>
+</html>

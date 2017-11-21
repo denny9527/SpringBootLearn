@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Spring Security Demo</title>
+
+<!-- Bootstrap Core CSS -->
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/signin.css}" rel="stylesheet">
+
+<style>
+body {
+	padding-top: 70px;
+	/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+</style>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<!-- jQuery Version 1.11.1 -->
+<script th:src="@{/components/jquery/jquery.js}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script th:src="@{/components/bootstrap/bootstrap.min.js}"></script>
+
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/components/bootbox/bootbox.min.js}"></script>
+<script th:src="@{/js/index.js}"></script>
+</head>
+
+<body>
+	<div class="container" id="bodymain">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h1>用户认证授权成功!</h1>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

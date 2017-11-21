@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link type="text/css" rel="stylesheet"
+	th:href="@{/components/bootstrap-fileinput/css/fileinput.css}" />
+<script type="text/javascript"
+	th:src="@{/components/bootstrap-fileinput/js/fileinput.js}"></script>
+<script type="text/javascript"
+	th:src="@{/components/bootstrap-fileinput/js/locales/zh.js}"></script>
+<script th:src="@{/js/ldhomework/ldhomework-upload.js}"></script>
+</head>
+<body>
+	<form class="form-horizontal" id="ldhomeworkForm" method="post" action="">
+		<fieldset>
+
+			<!-- Form Name -->
+			<legend>上传作业</legend>
+
+			<!-- Select Basic -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="lessonId">课程</label>
+				<div class="col-md-4">
+					<select id="lessonId" name="lessonId" class="form-control">
+						<option value="100">全栈架构师之Spring Boot架构篇</option>
+						<option value="101">全栈架构师之Java高端基础篇</option>
+						<option value="102">中间件研发之NIO篇</option>
+					</select>
+				</div>
+			</div>
+
+			<!-- Select Basic -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="classId">班级</label>
+				<div class="col-md-4">
+					<select id="classId" name="classId" class="form-control">
+						<option value="200">黄埔三期</option>
+					</select> <input type="hidden" name="homeworkFilePath" id="homeworkFilePath" />
+					<input type="hidden" name="homeworkFileName" id="homeworkFileName" />
+				</div>
+			</div>
+
+			<!-- File Button -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="homeworkFilePath">上传作业</label>
+				<div class="col-md-4">
+					<input id="homeworkFile" name="homeworkFile" class="fileloading"
+						type="file">
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	<!-- Button (Double) -->
+	<div class="form-group">
+		<label class="col-md-4 control-label" for="submitButton"></label>
+		<div class="col-md-8">
+			<button id="submitButton" name="submitButton" class="btn btn-success">提交</button>
+			<!-- <button id="resetButton" name="resetButton" class="btn btn-danger">重置</button>-->
+		</div>
+	</div>
+
+</body>
+</html>

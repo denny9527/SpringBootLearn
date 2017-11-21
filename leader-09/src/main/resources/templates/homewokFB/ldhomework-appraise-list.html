@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script th:inline="javascript">
+	var homeworkId = [[${homeworkId}]];
+</script>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/ldhomework/ldhomework-appraise-list.js}"></script>
+</head>
+<body>
+	<!-- <table id="appraiseTable" data-toggle="table"
+		data-url="ldhomeworkFB/appraise_list_page?homeworkId=">
+		<thead>
+			<tr>
+				<th data-field="appraiseUserAccount">学员账号</th>
+				<th data-field="appraiseUserName">学员姓名</th>
+				<th data-formatter="appraise">评价</th>
+				<th data-field="level">作业等级</th>
+				<th data-field="mark">评语</th>
+				<th data-field="createDateStr">提交时间</th>
+			</tr>
+		</thead>
+	</table> -->
+	<table id="appraiseTable">
+	</table>
+</body>
+</html>

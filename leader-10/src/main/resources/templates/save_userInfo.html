@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>用户信息管理</title>
+
+<!-- Bootstrap Core CSS -->
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/signin.css}" rel="stylesheet">
+
+<style>
+body {
+	padding-top: 70px;
+	/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+</style>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<!-- jQuery Version 1.11.1 -->
+<script th:src="@{/components/jquery/jquery.js}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script th:src="@{/components/bootstrap/bootstrap.min.js}"></script>
+
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/components/bootbox/bootbox.min.js}"></script>
+<script th:src="@{/js/index.js}"></script>
+<script th:src="@{/js/user-info.js}"></script>
+</head>
+
+<body>
+	<!-- Page Content
+	<br>
+        <div th:if="${#fields.hasErrors('*')}">
+        	<p th:text="${error}"></p>
+        </div>  
+        <div th:if="${#fields.hasErrors('*')}">
+        	<p th:text="${error}"></p>
+        </div>  
+    <br>  -->
+	<div class="container" id="bodymain">
+		<form class="form-signin" id="userInfoForm" th:method="post"
+			th:action="@{/save_userInfo}">
+			<h2 class="form-signin-heading">请输入用户信息</h2>
+			<hr class="colorgraph">
+			<div class="form-group">
+				<label for="inputName" class="sr-only">姓名</label> <input
+					type="name" id="inputName" class="form-control" name="name"
+					placeholder="姓名" required autofocus>
+				<p class="text-danger" id="nameError"></p>
+			</div>
+			<div class="form-group">
+				<label for="inputAge" class="sr-only">年龄</label> <input
+					type="age" id="inputAge" class="form-control" name="age"
+					placeholder="年龄" required>
+				<p class="text-danger" id="ageError"></p>
+			</div>
+		</form>
+		<div align="center">
+			<button class="btn btn-lg btn-primary btn-block" id="saveButton"
+				style="width: 300px">保存用户信息</button>
+		</div>
+	</div>
+</body>
+
+</html>

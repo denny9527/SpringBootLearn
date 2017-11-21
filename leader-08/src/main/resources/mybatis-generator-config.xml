@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry
+		location="D:\Development\maven\repository\mysql\mysql-connector-java\5.1.43\mysql-connector-java-5.1.43.jar" />
+	<context id="MYSQLTables_01" targetRuntime="MyBatis3Simple">
+
+		<commentGenerator
+			type="org.mybatis.generator.internal.DefaultCommentGenerator">
+			<property name="suppressAllComments" value="true"></property>
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.0.100:3306/prod_db?useUnicode=true&amp;characterEncoding=UTF-8"
+			userId="denny_zk" password="123456">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="true" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.denny.task01.common.domain"
+			targetProject="D:/Development/springboot-workspace/leader-08/src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="constructorBased" value="true"></property>
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>                                                                                                                                                                            
+                                                                                                                       
+		<javaClientGenerator type="ANNOTATEDMAPPER"
+			targetPackage="com.denny.task01.common.dao"
+			targetProject="D:/Development/springboot-workspace/leader-08/src/main/java">                               
+			<property name="rootInterface" value="com.denny.task01.common.IBaseDao" />
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<table schema="prod_db" tableName="T_USER" domainObjectName="User"
+			mapperName="IUserDao">
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="ID" sqlStatement="MySql" identity="true" />
+		</table>
+
+
+		<table schema="prod_db" tableName="T_ORG" domainObjectName="Org"
+			mapperName="IOrgDao">
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="ID" sqlStatement="MySql" identity="true" />
+		</table>
+	</context>
+	<context id="MYSQLTables_02" targetRuntime="MyBatis3Simple">
+		<commentGenerator
+			type="org.mybatis.generator.internal.DefaultCommentGenerator">
+			<property name="suppressAllComments" value="true"></property>
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.0.101:3306/prod_db?useUnicode=true&amp;characterEncoding=UTF-8"
+			userId="denny_zk" password="123456">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="true" />
+		</javaTypeResolver>
+		<javaModelGenerator targetPackage="com.denny.task02.common.domain"
+			targetProject="D:/Development/springboot-workspace/leader-08/src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="constructorBased" value="true"></property>
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<javaClientGenerator type="ANNOTATEDMAPPER"
+			targetPackage="com.denny.task02.common.dao"
+			targetProject="D:/Development/springboot-workspace/leader-08/src/main/java">
+			<property name="rootInterface" value="com.denny.task02.common.IBaseDao" />
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<table schema="prod_db" tableName="T_ORDER" domainObjectName="Order"
+			mapperName="IOrderDao">
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="ID" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="prod_db" tableName="T_ORDER_OPERATION_LOG"
+			domainObjectName="OrderOperationLog" mapperName="IOrderOperationLogDao">
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="ID" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="prod_db" tableName="T_SMS_LOG" domainObjectName="SMSlog"
+			mapperName="ISMSlogDao">
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="ID" sqlStatement="MySql" identity="true" />
+		</table>
+	</context>
+</generatorConfiguration>

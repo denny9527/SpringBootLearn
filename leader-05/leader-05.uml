@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_WCnVQJYMEeeJReCcRgQ7-g" name="Leader-05">
+  <packagedElement xmi:type="uml:Interface" xmi:id="_bGllcJYMEeeJReCcRgQ7-g" name="ContextLoader" visibility="public"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_lTfeUJYMEeeJReCcRgQ7-g" name="SmartContextLoader" visibility="public">
+    <generalization xmi:id="_qbKiwJYMEeeJReCcRgQ7-g" general="_bGllcJYMEeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_wAOt0JYMEeeJReCcRgQ7-g" name="AbstractContextLoader" visibility="public" isAbstract="true">
+    <interfaceRealization xmi:id="_SBfMsJYNEeeJReCcRgQ7-g" client="_wAOt0JYMEeeJReCcRgQ7-g" supplier="_lTfeUJYMEeeJReCcRgQ7-g" contract="_lTfeUJYMEeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_2tqPIJYMEeeJReCcRgQ7-g" name="AbstractDelegatingSmartContextLoader" visibility="public" isAbstract="true">
+    <interfaceRealization xmi:id="_Snzl0JYNEeeJReCcRgQ7-g" client="_2tqPIJYMEeeJReCcRgQ7-g" supplier="_lTfeUJYMEeeJReCcRgQ7-g" contract="_lTfeUJYMEeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_9EiRoJYMEeeJReCcRgQ7-g" name="AbstractGenericContextLoader" visibility="public" isAbstract="true">
+    <generalization xmi:id="_ViEXgJYNEeeJReCcRgQ7-g" general="_wAOt0JYMEeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_BPAG8JYNEeeJReCcRgQ7-g" name="AnnotationConfigContextLoader" visibility="public">
+    <generalization xmi:id="_WrXh4JYNEeeJReCcRgQ7-g" general="_9EiRoJYMEeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_GMCBoJYNEeeJReCcRgQ7-g" name="AbstractGenericWebContextLoader" visibility="public" isAbstract="true">
+    <generalization xmi:id="_cwNZMJYNEeeJReCcRgQ7-g" general="_wAOt0JYMEeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_JXw90JYNEeeJReCcRgQ7-g" name="AnnotationConfigWebContextLoader" visibility="public">
+    <generalization xmi:id="_eQv-4JYNEeeJReCcRgQ7-g" general="_GMCBoJYNEeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="__1PpQJYNEeeJReCcRgQ7-g" name="DelegatingSmartContextLoader" visibility="public">
+    <generalization xmi:id="_JWyQ8JYOEeeJReCcRgQ7-g" general="_2tqPIJYMEeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_DClH8JYOEeeJReCcRgQ7-g" name="WebDelegatingSmartContextLoader" visibility="public">
+    <generalization xmi:id="_KKOgEJYOEeeJReCcRgQ7-g" general="_2tqPIJYMEeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_g-5KsJYOEeeJReCcRgQ7-g" name="delegatingSmartContextLoadersToSmartContextLoaders" memberEnd="_g-5KsZYOEeeJReCcRgQ7-g _g-5KtJYOEeeJReCcRgQ7-g" navigableOwnedEnd="_g-5KtJYOEeeJReCcRgQ7-g">
+    <ownedEnd xmi:id="_g-5KsZYOEeeJReCcRgQ7-g" name="delegatingSmartContextLoaders" type="__1PpQJYNEeeJReCcRgQ7-g" association="_g-5KsJYOEeeJReCcRgQ7-g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g-5KspYOEeeJReCcRgQ7-g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g-5Ks5YOEeeJReCcRgQ7-g" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_g-5KtJYOEeeJReCcRgQ7-g" name="smartContextLoaders" type="_lTfeUJYMEeeJReCcRgQ7-g" aggregation="shared" association="_g-5KsJYOEeeJReCcRgQ7-g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g_C7sJYOEeeJReCcRgQ7-g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g_C7sZYOEeeJReCcRgQ7-g" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_nBPusJYOEeeJReCcRgQ7-g" name="webDelegatingSmartContextLoadersToSmartContextLoaders" memberEnd="_nBPusZYOEeeJReCcRgQ7-g _nBPutJYOEeeJReCcRgQ7-g" navigableOwnedEnd="_nBPutJYOEeeJReCcRgQ7-g">
+    <ownedEnd xmi:id="_nBPusZYOEeeJReCcRgQ7-g" name="webDelegatingSmartContextLoaders" type="_DClH8JYOEeeJReCcRgQ7-g" association="_nBPusJYOEeeJReCcRgQ7-g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nBPuspYOEeeJReCcRgQ7-g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nBPus5YOEeeJReCcRgQ7-g" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_nBPutJYOEeeJReCcRgQ7-g" name="smartContextLoaders" type="_lTfeUJYMEeeJReCcRgQ7-g" aggregation="shared" association="_nBPusJYOEeeJReCcRgQ7-g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nBPutZYOEeeJReCcRgQ7-g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nBPutpYOEeeJReCcRgQ7-g" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_nNPb8JYREeeJReCcRgQ7-g" name="GenericXmlContextLoader" visibility="public">
+    <generalization xmi:id="_DtD2EJYTEeeJReCcRgQ7-g" general="_9EiRoJYMEeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_qKsEgJYREeeJReCcRgQ7-g" name="GenericGroovyXmlContextLoader" visibility="public">
+    <generalization xmi:id="_VW_hMJYTEeeJReCcRgQ7-g" general="_nNPb8JYREeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_tMPxAJYREeeJReCcRgQ7-g" name="GenericPropertiesContextLoader" visibility="public">
+    <generalization xmi:id="_TAs_QJYTEeeJReCcRgQ7-g" general="_9EiRoJYMEeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_zvT1YJYREeeJReCcRgQ7-g" name="HybridContextLoader" visibility="public">
+    <generalization xmi:id="_bavzYJYTEeeJReCcRgQ7-g" general="_9EiRoJYMEeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="__tI5UJYREeeJReCcRgQ7-g" name="GenericXmlWebContextLoader" visibility="public">
+    <generalization xmi:id="_o9j4IJYTEeeJReCcRgQ7-g" general="_GMCBoJYNEeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_DvOOsJYSEeeJReCcRgQ7-g" name="GenericGroovyXmlWebContextLoader" visibility="public">
+    <generalization xmi:id="_rvWDQJYTEeeJReCcRgQ7-g" general="__tI5UJYREeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_YJIygJYwEeeJReCcRgQ7-g" name="TestContextBootstrapper" visibility="public" isAbstract="true"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_c2pDcJYwEeeJReCcRgQ7-g" name="AbstractTestContextBootstrapper" visibility="public" isAbstract="true">
+    <interfaceRealization xmi:id="_fufaUJYwEeeJReCcRgQ7-g" client="_c2pDcJYwEeeJReCcRgQ7-g" supplier="_YJIygJYwEeeJReCcRgQ7-g" contract="_YJIygJYwEeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_kgS8cJYwEeeJReCcRgQ7-g" name="DefaultTestContextBootstrapper" visibility="public" isAbstract="true">
+    <generalization xmi:id="_naakMJYwEeeJReCcRgQ7-g" general="_c2pDcJYwEeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ssrvEJYwEeeJReCcRgQ7-g" name="WebTestContextBootstrapper" visibility="public" isAbstract="true">
+    <generalization xmi:id="_v-lksJYwEeeJReCcRgQ7-g" general="_c2pDcJYwEeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_AuaYAJYxEeeJReCcRgQ7-g" name="TestContext" visibility="public" isAbstract="true"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_GVk00JYxEeeJReCcRgQ7-g" name="DefaultTestContext" visibility="public" isAbstract="true">
+    <generalization xmi:id="_LJl9cJYxEeeJReCcRgQ7-g" general="_AuaYAJYxEeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_7EvkUJYxEeeJReCcRgQ7-g" client="_c2pDcJYwEeeJReCcRgQ7-g" supplier="_GVk00JYxEeeJReCcRgQ7-g"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_xSJFAJY1EeeJReCcRgQ7-g" name="TestContextManager" visibility="public" isAbstract="true"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_1zTjEJY1EeeJReCcRgQ7-g" name="testContextManagersToTestContexts" memberEnd="_1zTjEZY1EeeJReCcRgQ7-g _1zTjFJY1EeeJReCcRgQ7-g" navigableOwnedEnd="_1zTjFJY1EeeJReCcRgQ7-g">
+    <ownedEnd xmi:id="_1zTjEZY1EeeJReCcRgQ7-g" name="testContextManagers" type="_xSJFAJY1EeeJReCcRgQ7-g" association="_1zTjEJY1EeeJReCcRgQ7-g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1zTjEpY1EeeJReCcRgQ7-g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1zTjE5Y1EeeJReCcRgQ7-g" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_1zTjFJY1EeeJReCcRgQ7-g" name="testContexts" type="_AuaYAJYxEeeJReCcRgQ7-g" aggregation="shared" association="_1zTjEJY1EeeJReCcRgQ7-g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1zctAJY1EeeJReCcRgQ7-g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1zctAZY1EeeJReCcRgQ7-g" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_FFpEsJY2EeeJReCcRgQ7-g" name="SpringJUnit4ClassRunner" visibility="public"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Jcz5QJY2EeeJReCcRgQ7-g" name="SpringRunner" visibility="public">
+    <generalization xmi:id="_Mv-6MJY2EeeJReCcRgQ7-g" general="_FFpEsJY2EeeJReCcRgQ7-g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_VXBogJY2EeeJReCcRgQ7-g" name="springJUnit4ClassRunnersToTestContextManagers" memberEnd="_VXBogZY2EeeJReCcRgQ7-g _VXBohJY2EeeJReCcRgQ7-g" navigableOwnedEnd="_VXBohJY2EeeJReCcRgQ7-g">
+    <ownedEnd xmi:id="_VXBogZY2EeeJReCcRgQ7-g" name="springJUnit4ClassRunners" type="_FFpEsJY2EeeJReCcRgQ7-g" association="_VXBogJY2EeeJReCcRgQ7-g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VXBogpY2EeeJReCcRgQ7-g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VXBog5Y2EeeJReCcRgQ7-g" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_VXBohJY2EeeJReCcRgQ7-g" name="testContextManagers" type="_xSJFAJY1EeeJReCcRgQ7-g" aggregation="shared" association="_VXBogJY2EeeJReCcRgQ7-g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VXBohZY2EeeJReCcRgQ7-g"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VXBohpY2EeeJReCcRgQ7-g" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_AFq9YJZ7Eeeaf-KCaChAPw" name="TestExecutionListener" visibility="protected" isAbstract="true"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_EDlkcJZ7Eeeaf-KCaChAPw" name="AbstractDirtiesContextTestExecutionListener" visibility="public" isAbstract="true">
+    <generalization xmi:id="_UHxkUJZ8Eeeaf-KCaChAPw" general="_MBNs4JZ8Eeeaf-KCaChAPw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_IsOjgJZ7Eeeaf-KCaChAPw" name="DependencyInjectionTestExecutionListener" visibility="public" isAbstract="true">
+    <generalization xmi:id="_cRT3QJZ8Eeeaf-KCaChAPw" general="_MBNs4JZ8Eeeaf-KCaChAPw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_OCVFgJZ7Eeeaf-KCaChAPw" name="ServletTestExecutionListener" visibility="public">
+    <generalization xmi:id="_dP7boJZ8Eeeaf-KCaChAPw" general="_MBNs4JZ8Eeeaf-KCaChAPw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UZvTgJZ7Eeeaf-KCaChAPw" name="SqlScriptsTestExecutionListener" visibility="public" isAbstract="true">
+    <generalization xmi:id="_eCIUoJZ8Eeeaf-KCaChAPw" general="_MBNs4JZ8Eeeaf-KCaChAPw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_bZ0rEJZ7Eeeaf-KCaChAPw" name="TransactionalTestExecutionListener" visibility="public">
+    <generalization xmi:id="_fdNykJZ8Eeeaf-KCaChAPw" general="_MBNs4JZ8Eeeaf-KCaChAPw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_vln2AJZ7Eeeaf-KCaChAPw" name="DirtiesContextTestExecutionListener" visibility="public">
+    <generalization xmi:id="_zm4E8JZ7Eeeaf-KCaChAPw" general="_EDlkcJZ7Eeeaf-KCaChAPw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_1uwXcJZ7Eeeaf-KCaChAPw" name="DirtiesContextBeforeModesTestExecutionListener" visibility="public">
+    <generalization xmi:id="_F595cJaKEee2gPGb1bWlQg" general="_EDlkcJZ7Eeeaf-KCaChAPw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_MBNs4JZ8Eeeaf-KCaChAPw" name="AbstractTestExecutionListener" visibility="public">
+    <interfaceRealization xmi:id="_Pqqf0JZ8Eeeaf-KCaChAPw" client="_MBNs4JZ8Eeeaf-KCaChAPw" supplier="_AFq9YJZ7Eeeaf-KCaChAPw" contract="_AFq9YJZ7Eeeaf-KCaChAPw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_9SAmgJbIEee2gPGb1bWlQg" name="BeanFactory" visibility="public" isAbstract="true"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_b6AqkJbJEee2gPGb1bWlQg" name="HierarchicalBeanFactory" visibility="public" isAbstract="true">
+    <generalization xmi:id="_eoeb8JbJEee2gPGb1bWlQg" general="_9SAmgJbIEee2gPGb1bWlQg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_hfAkMJbJEee2gPGb1bWlQg" name="ListableBeanFactory" visibility="public" isAbstract="true">
+    <generalization xmi:id="_k4204JbJEee2gPGb1bWlQg" general="_9SAmgJbIEee2gPGb1bWlQg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_oJsTgJbJEee2gPGb1bWlQg" name="ConfigurableBeanFactory" visibility="public" isAbstract="true">
+    <generalization xmi:id="_rG8u0JbJEee2gPGb1bWlQg" general="_b6AqkJbJEee2gPGb1bWlQg"/>
+    <generalization xmi:id="_nTVWcJbNEee2gPGb1bWlQg" general="_joEloJbNEee2gPGb1bWlQg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_xzKvMJbJEee2gPGb1bWlQg" name="AutowireCapableBeanFactory" visibility="public" isAbstract="true">
+    <generalization xmi:id="_0IF_MJbJEee2gPGb1bWlQg" general="_9SAmgJbIEee2gPGb1bWlQg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_6UkIgJbJEee2gPGb1bWlQg" name="ApplicationContext" visibility="public" isAbstract="true">
+    <generalization xmi:id="_K_42UJbKEee2gPGb1bWlQg" general="_b6AqkJbJEee2gPGb1bWlQg"/>
+    <generalization xmi:id="_UA5j0JbKEee2gPGb1bWlQg" general="_hfAkMJbJEee2gPGb1bWlQg"/>
+    <generalization xmi:id="_LTh5IJbMEee2gPGb1bWlQg" general="_Imz0MJbMEee2gPGb1bWlQg"/>
+    <generalization xmi:id="_UGduYJbMEee2gPGb1bWlQg" general="_R0mZcJbMEee2gPGb1bWlQg"/>
+    <generalization xmi:id="_cfE_IJbMEee2gPGb1bWlQg" general="_YGkt0JbMEee2gPGb1bWlQg"/>
+    <generalization xmi:id="_kVndkJbMEee2gPGb1bWlQg" general="_h0-FwJbMEee2gPGb1bWlQg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_9FEEwJbKEee2gPGb1bWlQg" name="ConfigurableListableBeanFactory" visibility="public" isAbstract="true">
+    <generalization xmi:id="_Dkls8JbLEee2gPGb1bWlQg" general="_xzKvMJbJEee2gPGb1bWlQg"/>
+    <generalization xmi:id="_Ek8WsJbLEee2gPGb1bWlQg" general="_oJsTgJbJEee2gPGb1bWlQg"/>
+    <generalization xmi:id="_rJ8REJbMEee2gPGb1bWlQg" general="_hfAkMJbJEee2gPGb1bWlQg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_ulbV8JbLEee2gPGb1bWlQg" name="ConfigurableApplicationContext" visibility="public" isAbstract="true">
+    <generalization xmi:id="_xPg9oJbLEee2gPGb1bWlQg" general="_6UkIgJbJEee2gPGb1bWlQg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_9y_sUJbLEee2gPGb1bWlQg" name="WebApplicationContext" visibility="public" isAbstract="true">
+    <generalization xmi:id="_CdpdkJbMEee2gPGb1bWlQg" general="_6UkIgJbJEee2gPGb1bWlQg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_Imz0MJbMEee2gPGb1bWlQg" name="ApplicationEventPublisher" visibility="public" isAbstract="true"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_R0mZcJbMEee2gPGb1bWlQg" name="MessageSource" visibility="public" isAbstract="true"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_YGkt0JbMEee2gPGb1bWlQg" name="ResourcePatternResolver" visibility="public" isAbstract="true"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_h0-FwJbMEee2gPGb1bWlQg" name="EnvironmentCapable" visibility="public" isAbstract="true"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_joEloJbNEee2gPGb1bWlQg" name="SingletonBeanRegistry" visibility="public" isAbstract="true"/>
+</uml:Model>

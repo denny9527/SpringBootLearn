@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_EiRZQJFREeeZstDm7wYu2Q" name="leader-04">
+  <packagedElement xmi:type="uml:Class" xmi:id="_sM6igJFREeeZstDm7wYu2Q" name="Order" visibility="public"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_vl-JAJFREeeZstDm7wYu2Q" name="OrderCreationEvent" visibility="public">
+    <ownedAttribute xmi:id="_sIKv8JFSEeeZstDm7wYu2Q" name="order" type="_sM6igJFREeeZstDm7wYu2Q">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_289vQJFSEeeZstDm7wYu2Q" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_MvmKkJFSEeeZstDm7wYu2Q" name="getOrder"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_FuXjgJFSEeeZstDm7wYu2Q" name="orderCreationEventsToOrders" memberEnd="_Fuam0JFSEeeZstDm7wYu2Q _FudDEJFSEeeZstDm7wYu2Q" navigableOwnedEnd="_FudDEJFSEeeZstDm7wYu2Q">
+    <ownedEnd xmi:id="_Fuam0JFSEeeZstDm7wYu2Q" name="orderCreationEvents" type="_vl-JAJFREeeZstDm7wYu2Q" association="_FuXjgJFSEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FuccAJFSEeeZstDm7wYu2Q" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FuccAZFSEeeZstDm7wYu2Q" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_FudDEJFSEeeZstDm7wYu2Q" name="orders" type="_sM6igJFREeeZstDm7wYu2Q" aggregation="shared" association="_FuXjgJFSEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FudqIJFSEeeZstDm7wYu2Q" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FudqIZFSEeeZstDm7wYu2Q" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_ckveUJFSEeeZstDm7wYu2Q" name="OrderCreationEventListener" visibility="public">
+    <ownedOperation xmi:id="_81MG4JFSEeeZstDm7wYu2Q" name="execute"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_hBTwQJFSEeeZstDm7wYu2Q" name="OrderCreationSMSListener" visibility="public">
+    <interfaceRealization xmi:id="_pP9MsJFSEeeZstDm7wYu2Q" client="_hBTwQJFSEeeZstDm7wYu2Q" supplier="_ckveUJFSEeeZstDm7wYu2Q" contract="_ckveUJFSEeeZstDm7wYu2Q"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_mK0nwJFSEeeZstDm7wYu2Q" name="OrderCreationEmailListener" visibility="public">
+    <interfaceRealization xmi:id="_opCWoJFSEeeZstDm7wYu2Q" client="_mK0nwJFSEeeZstDm7wYu2Q" supplier="_ckveUJFSEeeZstDm7wYu2Q" contract="_ckveUJFSEeeZstDm7wYu2Q"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_CJ3skJFTEeeZstDm7wYu2Q" name="MsgService" visibility="public">
+    <ownedOperation xmi:id="_FxukEJFTEeeZstDm7wYu2Q" name="sendOrderCreationEmail"/>
+    <ownedOperation xmi:id="_G6BB0JFTEeeZstDm7wYu2Q" name="sendOrderCreationSMS"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_NIIw8JFTEeeZstDm7wYu2Q" name="orderCreationSMSListenersToMsgServices" memberEnd="_NIJYAJFTEeeZstDm7wYu2Q _NIKmIJFTEeeZstDm7wYu2Q" navigableOwnedEnd="_NIKmIJFTEeeZstDm7wYu2Q">
+    <ownedEnd xmi:id="_NIJYAJFTEeeZstDm7wYu2Q" name="orderCreationSMSListeners" type="_hBTwQJFSEeeZstDm7wYu2Q" association="_NIIw8JFTEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NIJ_EJFTEeeZstDm7wYu2Q" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NIJ_EZFTEeeZstDm7wYu2Q" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_NIKmIJFTEeeZstDm7wYu2Q" name="msgServices" type="_CJ3skJFTEeeZstDm7wYu2Q" aggregation="shared" association="_NIIw8JFTEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NIKmIZFTEeeZstDm7wYu2Q" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NIKmIpFTEeeZstDm7wYu2Q" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_O5xtsJFTEeeZstDm7wYu2Q" name="orderCreationEmailListenersToMsgServices" memberEnd="_O5xtsZFTEeeZstDm7wYu2Q _O5yUwpFTEeeZstDm7wYu2Q" navigableOwnedEnd="_O5yUwpFTEeeZstDm7wYu2Q">
+    <ownedEnd xmi:id="_O5xtsZFTEeeZstDm7wYu2Q" name="orderCreationEmailListeners" type="_mK0nwJFSEeeZstDm7wYu2Q" association="_O5xtsJFTEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_O5yUwJFTEeeZstDm7wYu2Q" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_O5yUwZFTEeeZstDm7wYu2Q" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_O5yUwpFTEeeZstDm7wYu2Q" name="msgServices" type="_CJ3skJFTEeeZstDm7wYu2Q" aggregation="shared" association="_O5xtsJFTEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_O5yUw5FTEeeZstDm7wYu2Q" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_O5yUxJFTEeeZstDm7wYu2Q" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_cki0kJFTEeeZstDm7wYu2Q" name="OrderCreationEventPublisher" visibility="public">
+    <ownedAttribute xmi:id="_hAVqcJFTEeeZstDm7wYu2Q" name="eventLisenerList" type="_ckveUJFSEeeZstDm7wYu2Q"/>
+    <ownedOperation xmi:id="_hfEN0JFTEeeZstDm7wYu2Q" name="addListener"/>
+    <ownedOperation xmi:id="_ka5FwJFTEeeZstDm7wYu2Q" name="removeListener"/>
+    <ownedOperation xmi:id="_m4vBMJFTEeeZstDm7wYu2Q" name="removeAllListener"/>
+    <ownedOperation xmi:id="_pMvrMJFTEeeZstDm7wYu2Q" name="publishEvent"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_17U2oJFTEeeZstDm7wYu2Q" name="orderCreationEventPublishersToOrderCreationSMSListeners" memberEnd="_17VdsJFTEeeZstDm7wYu2Q _17Vds5FTEeeZstDm7wYu2Q" navigableOwnedEnd="_17Vds5FTEeeZstDm7wYu2Q">
+    <ownedEnd xmi:id="_17VdsJFTEeeZstDm7wYu2Q" name="orderCreationEventPublishers" type="_cki0kJFTEeeZstDm7wYu2Q" association="_17U2oJFTEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17VdsZFTEeeZstDm7wYu2Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17VdspFTEeeZstDm7wYu2Q" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_17Vds5FTEeeZstDm7wYu2Q" name="orderCreationSMSListeners" type="_hBTwQJFSEeeZstDm7wYu2Q" aggregation="shared" association="_17U2oJFTEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17WEwJFTEeeZstDm7wYu2Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17WEwZFTEeeZstDm7wYu2Q" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2kPQwJFTEeeZstDm7wYu2Q" name="orderCreationEventPublishersToOrderCreationEmailListeners" memberEnd="_2kPQwZFTEeeZstDm7wYu2Q _2kP30ZFTEeeZstDm7wYu2Q" navigableOwnedEnd="_2kP30ZFTEeeZstDm7wYu2Q">
+    <ownedEnd xmi:id="_2kPQwZFTEeeZstDm7wYu2Q" name="orderCreationEventPublishers" type="_cki0kJFTEeeZstDm7wYu2Q" association="_2kPQwJFTEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2kPQwpFTEeeZstDm7wYu2Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2kP30JFTEeeZstDm7wYu2Q" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_2kP30ZFTEeeZstDm7wYu2Q" name="orderCreationEmailListeners" type="_ckveUJFSEeeZstDm7wYu2Q" aggregation="shared" association="_2kPQwJFTEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2kP30pFTEeeZstDm7wYu2Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2kP305FTEeeZstDm7wYu2Q" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_nVCtQJFUEeeZstDm7wYu2Q" client="_cki0kJFTEeeZstDm7wYu2Q" supplier="_vl-JAJFREeeZstDm7wYu2Q"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_SeffsJFVEeeZstDm7wYu2Q" name="BeanFactory" visibility="public">
+    <ownedOperation xmi:id="_XnBfwJFVEeeZstDm7wYu2Q" name="getBean">
+      <ownedParameter xmi:id="_VcEOoJFWEeeZstDm7wYu2Q" name="type"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Z3REEJFVEeeZstDm7wYu2Q" name="getBean">
+      <ownedParameter xmi:id="_csdIgJFVEeeZstDm7wYu2Q" name="name"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_qtzjYJFVEeeZstDm7wYu2Q" name="containsBean">
+      <ownedParameter xmi:id="_R4tcoJFWEeeZstDm7wYu2Q" name="name"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_s4D0cJFVEeeZstDm7wYu2Q" name="AbtractBeanFactory" visibility="public" isAbstract="true">
+    <ownedAttribute xmi:id="_Ha2WoJFWEeeZstDm7wYu2Q" name="beanDefinitionMap"/>
+    <interfaceRealization xmi:id="_yiB4MJFWEeeZstDm7wYu2Q" client="_s4D0cJFVEeeZstDm7wYu2Q" supplier="_SeffsJFVEeeZstDm7wYu2Q" contract="_SeffsJFVEeeZstDm7wYu2Q"/>
+    <ownedOperation xmi:id="_4EeCgJFVEeeZstDm7wYu2Q" name="instantiateBeans"/>
+    <ownedOperation xmi:id="_6cseIJFVEeeZstDm7wYu2Q" name="createBean"/>
+    <ownedOperation xmi:id="_8xGJsJFVEeeZstDm7wYu2Q" name="registerBeanDefinition"/>
+    <ownedOperation xmi:id="__LoScJFVEeeZstDm7wYu2Q" name="assembleProperty"/>
+    <ownedOperation xmi:id="_BsoPkJFWEeeZstDm7wYu2Q" name="getBeanDefinition"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_eH59YJFWEeeZstDm7wYu2Q" name="AutowireBeanFactory" visibility="public">
+    <generalization xmi:id="_gAGOEJFWEeeZstDm7wYu2Q" general="_s4D0cJFVEeeZstDm7wYu2Q"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_hV4VQJFWEeeZstDm7wYu2Q" name="ApplicationContext" visibility="public">
+    <generalization xmi:id="_pcfQAJFWEeeZstDm7wYu2Q" general="_SeffsJFVEeeZstDm7wYu2Q"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_6DAWUJFWEeeZstDm7wYu2Q" name="AbstractApplicationContext" visibility="public">
+    <interfaceRealization xmi:id="_UZrIEJFXEeeZstDm7wYu2Q" client="_6DAWUJFWEeeZstDm7wYu2Q" supplier="_hV4VQJFWEeeZstDm7wYu2Q" contract="_hV4VQJFWEeeZstDm7wYu2Q"/>
+    <ownedOperation xmi:id="_C5Ci4JFXEeeZstDm7wYu2Q" name="load"/>
+    <ownedOperation xmi:id="_GtxYwJFXEeeZstDm7wYu2Q" name="loadBeanDefinitions" isAbstract="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Mk7ZYJFXEeeZstDm7wYu2Q" name="AnnotationConfigApplicationContext" visibility="public">
+    <generalization xmi:id="_Q6DmkJFXEeeZstDm7wYu2Q" general="_6DAWUJFWEeeZstDm7wYu2Q"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_bSUa4JFXEeeZstDm7wYu2Q" name="abstractApplicationContextsToAbtractBeanFactorys" memberEnd="_bSVB8JFXEeeZstDm7wYu2Q _bSVpApFXEeeZstDm7wYu2Q" navigableOwnedEnd="_bSVpApFXEeeZstDm7wYu2Q">
+    <ownedEnd xmi:id="_bSVB8JFXEeeZstDm7wYu2Q" name="abstractApplicationContexts" type="_6DAWUJFWEeeZstDm7wYu2Q" association="_bSUa4JFXEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bSVpAJFXEeeZstDm7wYu2Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bSVpAZFXEeeZstDm7wYu2Q" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_bSVpApFXEeeZstDm7wYu2Q" name="abtractBeanFactorys" type="_s4D0cJFVEeeZstDm7wYu2Q" aggregation="shared" association="_bSUa4JFXEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bSWQEJFXEeeZstDm7wYu2Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bSWQEZFXEeeZstDm7wYu2Q" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_vK35sJFXEeeZstDm7wYu2Q" name="AbstractBeanDefinitionReader" visibility="public">
+    <ownedAttribute xmi:id="_0ZghwJFXEeeZstDm7wYu2Q" name="registry"/>
+    <ownedAttribute xmi:id="_2jiwYJFXEeeZstDm7wYu2Q" name="packageName"/>
+    <interfaceRealization xmi:id="_CRb64JFYEeeZstDm7wYu2Q" client="_vK35sJFXEeeZstDm7wYu2Q"/>
+    <ownedOperation xmi:id="_b-2e0JFZEeeZstDm7wYu2Q" name="loadBeanDefinitions"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_-f-bcJFXEeeZstDm7wYu2Q" name="AnnotationBeanDefinitionReader" visibility="public">
+    <generalization xmi:id="_C68K4JFYEeeZstDm7wYu2Q" general="_vK35sJFXEeeZstDm7wYu2Q"/>
+    <ownedOperation xmi:id="_HQw7oJFYEeeZstDm7wYu2Q" name="handleproperty"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ksbvcJFYEeeZstDm7wYu2Q" name="annotationConfigApplicationContextsToAbstractBeanDefinitionReaders" memberEnd="_kscWgJFYEeeZstDm7wYu2Q _kscWg5FYEeeZstDm7wYu2Q" navigableOwnedEnd="_kscWg5FYEeeZstDm7wYu2Q">
+    <ownedEnd xmi:id="_kscWgJFYEeeZstDm7wYu2Q" name="annotationConfigApplicationContexts" type="_Mk7ZYJFXEeeZstDm7wYu2Q" association="_ksbvcJFYEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kscWgZFYEeeZstDm7wYu2Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kscWgpFYEeeZstDm7wYu2Q" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_kscWg5FYEeeZstDm7wYu2Q" name="abstractBeanDefinitionReaders" type="_vK35sJFXEeeZstDm7wYu2Q" aggregation="shared" association="_ksbvcJFYEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ksc9kJFYEeeZstDm7wYu2Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ksdkoJFYEeeZstDm7wYu2Q" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_s2bVYJFYEeeZstDm7wYu2Q" name="BeanDefinition" visibility="public">
+    <ownedAttribute xmi:id="_vuo4oJFYEeeZstDm7wYu2Q" name="bean"/>
+    <ownedAttribute xmi:id="_xuLugJFYEeeZstDm7wYu2Q" name="beanClass"/>
+    <ownedAttribute xmi:id="_x88jQJFYEeeZstDm7wYu2Q" name="beanClassName"/>
+    <ownedAttribute xmi:id="_yAjQ4JFYEeeZstDm7wYu2Q" name="attributeTypeList"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_6YYegJFYEeeZstDm7wYu2Q" name="AttributeType" visibility="public">
+    <ownedAttribute xmi:id="_94fvQJFYEeeZstDm7wYu2Q" name="name"/>
+    <ownedAttribute xmi:id="_-GquIJFYEeeZstDm7wYu2Q" name="type"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_NQAr0JFZEeeZstDm7wYu2Q" name="beanDefinitionsToAttributeTypes" memberEnd="_NQBS4JFZEeeZstDm7wYu2Q _NQBS45FZEeeZstDm7wYu2Q" navigableOwnedEnd="_NQBS45FZEeeZstDm7wYu2Q">
+    <ownedEnd xmi:id="_NQBS4JFZEeeZstDm7wYu2Q" name="beanDefinitions" type="_s2bVYJFYEeeZstDm7wYu2Q" association="_NQAr0JFZEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NQBS4ZFZEeeZstDm7wYu2Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NQBS4pFZEeeZstDm7wYu2Q" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_NQBS45FZEeeZstDm7wYu2Q" name="attributeTypes" type="_6YYegJFYEeeZstDm7wYu2Q" aggregation="shared" association="_NQAr0JFZEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NQBS5JFZEeeZstDm7wYu2Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NQBS5ZFZEeeZstDm7wYu2Q" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_h953MJFZEeeZstDm7wYu2Q" name="abstractBeanDefinitionReadersToBeanDefinitions" memberEnd="_h953MZFZEeeZstDm7wYu2Q _h96eQpFZEeeZstDm7wYu2Q" navigableOwnedEnd="_h96eQpFZEeeZstDm7wYu2Q">
+    <ownedEnd xmi:id="_h953MZFZEeeZstDm7wYu2Q" name="abstractBeanDefinitionReaders" type="_vK35sJFXEeeZstDm7wYu2Q" association="_h953MJFZEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h96eQJFZEeeZstDm7wYu2Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h96eQZFZEeeZstDm7wYu2Q" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_h96eQpFZEeeZstDm7wYu2Q" name="beanDefinitions" type="_s2bVYJFYEeeZstDm7wYu2Q" aggregation="shared" association="_h953MJFZEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h96eQ5FZEeeZstDm7wYu2Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h96eRJFZEeeZstDm7wYu2Q" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_mN5swJFZEeeZstDm7wYu2Q" name="abtractBeanFactorysToBeanDefinitions" memberEnd="_mN6T0JFZEeeZstDm7wYu2Q _mN6T05FZEeeZstDm7wYu2Q" navigableOwnedEnd="_mN6T05FZEeeZstDm7wYu2Q">
+    <ownedEnd xmi:id="_mN6T0JFZEeeZstDm7wYu2Q" name="abtractBeanFactorys" type="_s4D0cJFVEeeZstDm7wYu2Q" association="_mN5swJFZEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mN6T0ZFZEeeZstDm7wYu2Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mN6T0pFZEeeZstDm7wYu2Q" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_mN6T05FZEeeZstDm7wYu2Q" name="beanDefinitions" type="_s2bVYJFYEeeZstDm7wYu2Q" aggregation="shared" association="_mN5swJFZEeeZstDm7wYu2Q">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mN6T1JFZEeeZstDm7wYu2Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mN6T1ZFZEeeZstDm7wYu2Q" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>

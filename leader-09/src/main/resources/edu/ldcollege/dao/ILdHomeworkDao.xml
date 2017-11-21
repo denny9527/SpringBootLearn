@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.ldcollege.dao.ILdHomeworkDao">
+
+    <resultMap id="BaseResultMap" type="edu.ldcollege.domain.LdHomework">
+        <id column="ID" jdbcType="BIGINT" property="id" />
+        <result column="USER_ID" jdbcType="BIGINT" property="userId" />
+        <result column="CLASS_ID" jdbcType="BIGINT" property="classId" />
+        <result column="LESSON_ID" jdbcType="BIGINT" property="lessonId" />
+        <result column="HOMEWORK_FILE_PATH" jdbcType="VARCHAR" property="homeworkFilePath" />
+        <result column="HOMEWORK_FILE_NAME" jdbcType="VARCHAR" property="homeworkFileName" />
+        <result column="CORRECT_FLAG" jdbcType="CHAR" property="correctFlag" />
+        <result column="STAR_COUNT" jdbcType="BIGINT" property="starCount" />
+        <result column="NEGATIVE_COUNT" jdbcType="BIGINT" property="negativeCount" />
+        <result column="BEST_FLAG" jdbcType="CHAR" property="bestFlag" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="USER_ACCOUNT" jdbcType="VARCHAR" property="userAccount" />
+        <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+        <result column="APPRAISE_FLAG" jdbcType="VARCHAR" property="appraiseFlag" />
+    </resultMap>
+
+    <sql id="BASE_COLUMN_LIST">
+        ID, USER_ID, CLASS_ID, LESSON_ID, HOMEWORK_FILE_PATH, HOMEWORK_FILE_NAME, CORRECT_FLAG, 
+        STAR_COUNT, NEGATIVE_COUNT, BEST_FLAG, CREATE_DATE
+    </sql>
+    
+    <sql id="BASE_ALIAS_COLUMN_LIST">
+        T_U_H.ID, T_U_H.USER_ID, T_U_H.CLASS_ID, T_U_H.LESSON_ID, T_U_H.HOMEWORK_FILE_PATH, T_U_H.HOMEWORK_FILE_NAME, T_U_H.CORRECT_FLAG, 
+        T_U_H.STAR_COUNT, T_U_H.NEGATIVE_COUNT, T_U_H.BEST_FLAG, T_U_H.CREATE_DATE
+    </sql>
+
+    <sql id="BASE_CONDITION_CLAUSE">
+        <where>
+            <if test="id != null">
+                 and ID = #{id,jdbcType=BIGINT}
+            </if>
+            <if test="userId != null">
+                 and USER_ID = #{userId,jdbcType=BIGINT}
+            </if>
+            <if test="classId != null">
+                 and CLASS_ID = #{classId,jdbcType=BIGINT}
+            </if>
+            <if test="lessonId != null">
+                 and LESSON_ID = #{lessonId,jdbcType=BIGINT}
+            </if>
+            <if test="homeworkFilePath != null and homeworkFilePath != ''">
+                 and HOMEWORK_FILE_PATH = #{homeworkFilePath,jdbcType=VARCHAR}
+            </if>
+            <if test="homeworkFileName != null and homeworkFileName != ''">
+                 and HOMEWORK_FILE_NAME = #{homeworkFileName,jdbcType=VARCHAR}
+            </if>
+            <if test="correctFlag != null and correctFlag != ''">
+                 and CORRECT_FLAG = #{correctFlag,jdbcType=CHAR}
+            </if>
+            <if test="starCount != null">
+                 and STAR_COUNT = #{starCount,jdbcType=BIGINT}
+            </if>
+            <if test="negativeCount != null">
+                 and NEGATIVE_COUNT = #{negativeCount,jdbcType=BIGINT}
+            </if>
+            <if test="bestFlag != null and bestFlag != ''">
+                 and BEST_FLAG = #{bestFlag,jdbcType=CHAR}
+            </if>
+            <if test="createDate != null">
+                 and CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+    </sql>
+
+    <sql id="BASE_UPDATE_CLAUSE">
+        <set>
+            <if test="userId != null">
+                USER_ID = #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="classId != null">
+                CLASS_ID = #{classId,jdbcType=BIGINT},
+            </if>
+            <if test="lessonId != null">
+                LESSON_ID = #{lessonId,jdbcType=BIGINT},
+            </if>
+            <if test="homeworkFilePath != null and homeworkFilePath != ''">
+                HOMEWORK_FILE_PATH = #{homeworkFilePath,jdbcType=VARCHAR},
+            </if>
+            <if test="homeworkFileName != null and homeworkFileName != ''">
+                HOMEWORK_FILE_NAME = #{homeworkFileName,jdbcType=VARCHAR},
+            </if>
+            <if test="correctFlag != null and correctFlag != ''">
+                CORRECT_FLAG = #{correctFlag,jdbcType=CHAR},
+            </if>
+            <if test="starCount != null">
+                STAR_COUNT = #{starCount,jdbcType=BIGINT},
+            </if>
+            <if test="negativeCount != null">
+                NEGATIVE_COUNT = #{negativeCount,jdbcType=BIGINT},
+            </if>
+            <if test="bestFlag != null and bestFlag != ''">
+                BEST_FLAG = #{bestFlag,jdbcType=CHAR},
+            </if>
+            <if test="createDate != null">
+                CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+    </sql>
+
+    <sql id="BASE_ORDER_BY">
+        order by
+        <choose>
+            <when test="orderBy != null and orderBy != ''">
+                ${orderBy}
+            </when>
+            <otherwise>
+                ID desc
+            </otherwise>
+        </choose>
+    </sql>
+
+    <insert id="save" parameterType="edu.ldcollege.domain.LdHomework">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into T_USER_HOMEWORK (ID, USER_ID, CLASS_ID, 
+            LESSON_ID, HOMEWORK_FILE_PATH, HOMEWORK_FILE_NAME, 
+            CORRECT_FLAG, STAR_COUNT, NEGATIVE_COUNT, 
+            BEST_FLAG, CREATE_DATE)
+        values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{classId,jdbcType=BIGINT}, 
+            #{lessonId,jdbcType=BIGINT}, #{homeworkFilePath,jdbcType=VARCHAR}, #{homeworkFileName,jdbcType=VARCHAR}, 
+            #{correctFlag,jdbcType=CHAR}, #{starCount,jdbcType=BIGINT}, #{negativeCount,jdbcType=BIGINT}, 
+            #{bestFlag,jdbcType=CHAR}, #{createDate,jdbcType=TIMESTAMP})
+    </insert>
+
+    <insert id="batchSave" parameterType="java.util.List">
+        insert into T_USER_HOMEWORK (ID, USER_ID, CLASS_ID, LESSON_ID, 
+            HOMEWORK_FILE_PATH, HOMEWORK_FILE_NAME, 
+            CORRECT_FLAG, STAR_COUNT, NEGATIVE_COUNT, 
+            BEST_FLAG, CREATE_DATE)
+		values
+        <foreach collection="list" index="index" item="item" separator =",">
+            (#{item.userId,jdbcType=BIGINT}, #{item.classId,jdbcType=BIGINT}, #{item.lessonId,jdbcType=BIGINT}, 
+                #{item.homeworkFilePath,jdbcType=VARCHAR}, #{item.homeworkFileName,jdbcType=VARCHAR}, 
+                #{item.correctFlag,jdbcType=CHAR}, #{item.starCount,jdbcType=BIGINT}, #{item.negativeCount,jdbcType=BIGINT}, 
+                #{item.bestFlag,jdbcType=CHAR}, #{item.createDate,jdbcType=TIMESTAMP})
+        </foreach>
+    </insert>
+
+    <update id="update" parameterType="edu.ldcollege.domain.LdHomework">
+        update T_USER_HOMEWORK
+        <include refid="BASE_UPDATE_CLAUSE" />
+        where ID = #{id,jdbcType=BIGINT}
+    </update>
+
+    <delete id="deleteById" parameterType="java.lang.Long">
+        delete from T_USER_HOMEWORK
+        where ID = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <delete id="deleteByIds" parameterType="java.util.List">
+        delete from T_USER_HOMEWORK
+        where ID in 
+        <foreach close=")" collection="list" index="index" item="item" open="(" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select 
+        <include refid="BASE_COLUMN_LIST" />
+        from T_USER_HOMEWORK
+        where ID = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="queryList" parameterType="edu.ldcollege.query.LdHomeworkQuery" resultMap="BaseResultMap">
+        select 
+        <include refid="BASE_COLUMN_LIST" />
+        from T_USER_HOMEWORK
+        <include refid="BASE_CONDITION_CLAUSE" />
+        <include refid="BASE_ORDER_BY" />
+    </select>
+
+    <select id="queryWithPage" parameterType="edu.ldcollege.query.LdHomeworkQuery" resultMap="BaseResultMap">
+        select 
+        <include refid="BASE_COLUMN_LIST" />
+        from T_USER_HOMEWORK
+        <include refid="BASE_CONDITION_CLAUSE" />
+        <include refid="BASE_ORDER_BY" />
+    </select>
+
+    <select id="queryCount" parameterType="edu.ldcollege.query.LdHomeworkQuery" resultType="java.lang.Long">
+        select count(*) from T_USER_HOMEWORK
+        <include refid="BASE_CONDITION_CLAUSE" />
+    </select>
+    
+    <select id="queryCorrectHomework" parameterType="edu.ldcollege.query.LdHomeworkQuery" resultMap="BaseResultMap">
+        select  
+        <include refid="BASE_ALIAS_COLUMN_LIST" />,
+        T_U.USER_ACCOUNT,
+        T_U.USER_NAME,
+        CASE WHEN (SELECT COUNT(1) FROM T_HOMEWORK_CORRECTION T_H_C WHERE T_H_C.CORRECT_USER_ID = #{userId,jdbcType=BIGINT} AND T_U_H.ID = T_H_C.HOMEWORK_ID) > 0 then 1
+        ELSE 0 END AS 'APPRAISE_FLAG'
+        from T_USER_HOMEWORK T_U_H join T_USER T_U on T_U_H.USER_ID = T_U.ID
+        <if test="excludeUserId != null">
+            and T_U_H.USER_ID <![CDATA[<>]]> #{excludeUserId,jdbcType=BIGINT}
+       	</if>
+       	order by T_U_H.CREATE_DATE desc
+    </select>
+    
+    <update id="updateAppraiseInfo" parameterType="java.util.Map">
+        update T_USER_HOMEWORK
+        <set>
+        	<if test="starAddCount != null">
+                STAR_COUNT = STAR_COUNT + #{starAddCount,jdbcType=BIGINT},
+            </if>
+            <if test="negativeAddCount != null">
+                NEGATIVE_COUNT = NEGATIVE_COUNT + #{negativeAddCount,jdbcType=BIGINT},
+            </if>
+            CORRECT_FLAG = '1'
+        </set>
+        where ID = #{homeworkId,jdbcType=BIGINT}
+    </update>
+</mapper>

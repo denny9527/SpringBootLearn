@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link type="text/css" rel="stylesheet"
+	th:href="@{/components/bootstrap-fileinput/css/fileinput.css}" />
+<script type="text/javascript"
+	th:src="@{/components/bootstrap-fileinput/js/fileinput.js}"></script>
+<script type="text/javascript"
+	th:src="@{/components/bootstrap-fileinput/js/locales/zh.js}"></script>
+<!--  bootstrap-table -->
+<script th:src="@{/components/bootstrap-table/bootstrap-table.min.js}"></script>
+<script th:src="@{/components/bootstrap-table/bootstrap-table-locale-all.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/ldhomework/ldhomework-list.js}"></script>
+</head>
+<body>
+	<fieldset>
+		<legend>
+			<!-- 			<button id="uploadeButton" name="uploadeButton" class="btn btn-success">上传作业</button> -->
+			我的作业
+		</legend>
+	</fieldset>
+	<table id="ldhomework-table" data-toggle="table"
+		data-url="ldhomework/list">
+		<thead>
+			<tr>
+				<th data-field="lessonName">课程</th>
+				<th data-field="className">班级</th>
+				<th data-formatter="downloadLinkFormatter">作业</th>
+				<th data-field="starCount">点赞数</th>
+				<th data-field="negativeCount">差评数</th>
+				<th data-field="bestFlagStr">是否优秀作业</th>
+				<th data-field="correctFlagStr">是否批改</th>
+				<th data-field="createDateStr">提交时间</th>
+				<th data-formatter="operFormatter" data-events="actionEvents">操作</th>
+			</tr>
+		</thead>
+	</table>
+</body>
+</html>

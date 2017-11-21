@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <!--  bootstrap-table -->
+    <script th:src="@{/js/bootstrap-table.min.js}"></script>
+    <script th:src="@{/js/bootstrap-table-locale-all.min.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+</head>
+<body>
+<table id="ldhomework-table" data-toggle="table" data-url="students/list?onlynoclasses=true">
+    <thead>
+        <tr>
+            <th data-field="lessonName" data-formatter="nameFormatter">课程</th>
+            <th data-field="className"  >班级</th>
+            <th data-field="homeworkFileName">作业</th>
+            <th data-field="starCount">点赞数</th>
+            <th data-field="negativeCount">差评数</th>
+            <th data-field="bestFlag">是否优秀作业</th>
+            <th data-field="correctFlag">是否批改</th>
+            <th data-field="createDate">提交时间</th>
+        </tr>
+    </thead>
+</table>
+</body>
+</html>

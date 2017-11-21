@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_gJNgwJxtEeeZtZcaHO7lTw" name="NewModel">
+  <packagedElement xmi:type="uml:Interface" xmi:id="_O2C6YJxuEeeZtZcaHO7lTw" name="Advice" visibility="public" isAbstract="true">
+    <ownedOperation xmi:id="_S30twJxuEeeZtZcaHO7lTw" name="execute" isAbstract="true">
+      <ownedParameter xmi:id="_VYabMJxuEeeZtZcaHO7lTw" name="target"/>
+      <ownedParameter xmi:id="_XTxUoJxuEeeZtZcaHO7lTw" name="method"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_duTIEJxuEeeZtZcaHO7lTw" name="BeforeAdvice" visibility="public" isAbstract="true">
+    <generalization xmi:id="_ifuPsJxuEeeZtZcaHO7lTw" general="_O2C6YJxuEeeZtZcaHO7lTw"/>
+    <nestedClassifier xmi:type="uml:Interface" xmi:id="_jIb1gJxuEeeZtZcaHO7lTw" name="Advice" visibility="public" isAbstract="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_qInTsJxuEeeZtZcaHO7lTw" name="AfterReturningAdvice" visibility="public" isAbstract="true">
+    <generalization xmi:id="_tjllwJxuEeeZtZcaHO7lTw" general="_O2C6YJxuEeeZtZcaHO7lTw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_w3g0oJxuEeeZtZcaHO7lTw" name="AfterThrowingAdvice" visibility="public" isAbstract="true">
+    <generalization xmi:id="_z413oJxuEeeZtZcaHO7lTw" general="_O2C6YJxuEeeZtZcaHO7lTw"/>
+    <ownedOperation xmi:id="_1yv_kJxuEeeZtZcaHO7lTw" name="execute" visibility="private">
+      <ownedParameter xmi:id="_96LZsJxuEeeZtZcaHO7lTw" name="target"/>
+      <ownedParameter xmi:id="_-MFpEJxuEeeZtZcaHO7lTw" name="method"/>
+      <ownedParameter xmi:id="_-ac1MJxuEeeZtZcaHO7lTw" name="exception"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_KRbDMJxvEeeZtZcaHO7lTw" name="AopProxy" visibility="public" isAbstract="true">
+    <ownedOperation xmi:id="_Ul7_8JxvEeeZtZcaHO7lTw" name="getProxy"/>
+    <ownedOperation xmi:id="_WlKFsJxvEeeZtZcaHO7lTw" name="getProxy">
+      <ownedParameter xmi:id="_YSiNgJxvEeeZtZcaHO7lTw" name="classLoader"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_WE8fIJxwEeeZtZcaHO7lTw" name="JdkDynamicAopProxy" visibility="public">
+    <templateBinding xmi:id="_F6m9MJ3eEeejkbT59sZlmg"/>
+    <ownedAttribute xmi:id="_3RXnwJxwEeeZtZcaHO7lTw" name="target"/>
+    <ownedAttribute xmi:id="_3nsdEJxwEeeZtZcaHO7lTw" name="interfaces"/>
+    <ownedAttribute xmi:id="_3r5AkJxwEeeZtZcaHO7lTw" name="adviceList"/>
+    <interfaceRealization xmi:id="_c41NwJxwEeeZtZcaHO7lTw" client="_WE8fIJxwEeeZtZcaHO7lTw" supplier="_KRbDMJxvEeeZtZcaHO7lTw" contract="_KRbDMJxvEeeZtZcaHO7lTw"/>
+    <interfaceRealization xmi:id="_QgRgMJxxEeeZtZcaHO7lTw" client="_WE8fIJxwEeeZtZcaHO7lTw" supplier="_BMChIJxxEeeZtZcaHO7lTw" contract="_BMChIJxxEeeZtZcaHO7lTw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_BMChIJxxEeeZtZcaHO7lTw" name="InvocationHandler" visibility="public" isAbstract="true">
+    <ownedOperation xmi:id="_F1cVMJxxEeeZtZcaHO7lTw" name="invoke">
+      <ownedParameter xmi:id="_IvvjIJxxEeeZtZcaHO7lTw" name="proxy"/>
+      <ownedParameter xmi:id="_Kw0qEJxxEeeZtZcaHO7lTw" name="method"/>
+      <ownedParameter xmi:id="_L67swJxxEeeZtZcaHO7lTw" name="args"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Y1QOIJxxEeeZtZcaHO7lTw" name="ProxyFactory" visibility="public" isAbstract="true">
+    <ownedAttribute xmi:id="_5hXlEJ3cEeejkbT59sZlmg" name="target"/>
+    <ownedAttribute xmi:id="_65MToJ3cEeejkbT59sZlmg" name="interfaces"/>
+    <ownedAttribute xmi:id="_JD1EMJ4bEeeDoJt5Z2J8Fw" name="adviceList"/>
+    <ownedOperation xmi:id="_mvAMMJxxEeeZtZcaHO7lTw" name="getProxy"/>
+    <ownedOperation xmi:id="_nJo5wJxxEeeZtZcaHO7lTw" name="getProxy">
+      <ownedParameter xmi:id="_ts2IEJxxEeeZtZcaHO7lTw" name="classLoader"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_ncxRIJxxEeeZtZcaHO7lTw" name="getAopProxy">
+      <ownedParameter xmi:id="_ST6RoJ3dEeejkbT59sZlmg" name="aopProxyType"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_7vqBkJ3cEeejkbT59sZlmg" name="getProxy">
+      <ownedParameter xmi:id="_9NWuoJ3cEeejkbT59sZlmg" name="aopProxyType"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_BTD_wJ3dEeejkbT59sZlmg" name="getProxy">
+      <ownedParameter xmi:id="_DAqKAJ3dEeejkbT59sZlmg" name="classLoader"/>
+      <ownedParameter xmi:id="_DbVT0J3dEeejkbT59sZlmg" name="aopProxyType"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_yfvPUJxxEeeZtZcaHO7lTw" name="proxyFactorysToAdvices" memberEnd="_yfwdcJxxEeeZtZcaHO7lTw _yfzgwJxxEeeZtZcaHO7lTw" navigableOwnedEnd="_yfzgwJxxEeeZtZcaHO7lTw">
+    <ownedEnd xmi:id="_yfwdcJxxEeeZtZcaHO7lTw" name="proxyFactorys" type="_Y1QOIJxxEeeZtZcaHO7lTw" association="_yfvPUJxxEeeZtZcaHO7lTw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yfy5sJxxEeeZtZcaHO7lTw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yfy5sZxxEeeZtZcaHO7lTw" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_yfzgwJxxEeeZtZcaHO7lTw" name="advices" type="_O2C6YJxuEeeZtZcaHO7lTw" aggregation="shared" association="_yfvPUJxxEeeZtZcaHO7lTw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yf0u4JxxEeeZtZcaHO7lTw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yf0u4ZxxEeeZtZcaHO7lTw" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_M4UsoJxyEeeZtZcaHO7lTw" name="ReflectiveMethodInvocation" visibility="public">
+    <ownedAttribute xmi:id="_amUGoJxyEeeZtZcaHO7lTw" name="proxy"/>
+    <ownedAttribute xmi:id="_aoXVEJxyEeeZtZcaHO7lTw" name="target"/>
+    <ownedAttribute xmi:id="_ap_FsJxyEeeZtZcaHO7lTw" name="method"/>
+    <ownedAttribute xmi:id="_arorgJxyEeeZtZcaHO7lTw" name="arguments"/>
+    <ownedAttribute xmi:id="_atQcIJxyEeeZtZcaHO7lTw" name="targetClass"/>
+    <ownedAttribute xmi:id="_av_nEJxyEeeZtZcaHO7lTw" name="adviceList"/>
+    <ownedOperation xmi:id="_ZtAgEJxyEeeZtZcaHO7lTw" name="proceed"/>
+    <ownedOperation xmi:id="_IY4hAJ3fEeejkbT59sZlmg" name="invokeTargetMethod"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_RaEZgJxyEeeZtZcaHO7lTw" client="_WE8fIJxwEeeZtZcaHO7lTw" supplier="_M4UsoJxyEeeZtZcaHO7lTw"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_rDnmkJxyEeeZtZcaHO7lTw" name="TransactionManageConfig" visibility="public" isAbstract="true">
+    <ownedAttribute xmi:id="_uX3lkJxyEeeZtZcaHO7lTw" name="connectionManager"/>
+    <ownedAttribute xmi:id="_upCOEJxyEeeZtZcaHO7lTw" name="transactionManager"/>
+    <ownedAttribute xmi:id="_utKgIJxyEeeZtZcaHO7lTw" name="adviceList"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_TI648J3bEeejkbT59sZlmg" client="_Y1QOIJxxEeeZtZcaHO7lTw" supplier="_KRbDMJxvEeeZtZcaHO7lTw"/>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_kgi2oJ3cEeejkbT59sZlmg" name="AopProxyType" visibility="public"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_w3XCUJ3cEeejkbT59sZlmg" client="_Y1QOIJxxEeeZtZcaHO7lTw" supplier="_kgi2oJ3cEeejkbT59sZlmg"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_w8sgMJ3aEeejkbT59sZlmg" name="CglibAopProxy" visibility="public">
+    <ownedAttribute xmi:id="_5LtwEJ3aEeejkbT59sZlmg" name="target"/>
+    <ownedAttribute xmi:id="_5hGKMJ3aEeejkbT59sZlmg" name="adviceList"/>
+    <interfaceRealization xmi:id="_dYttwJ3bEeejkbT59sZlmg" client="_w8sgMJ3aEeejkbT59sZlmg" supplier="_KRbDMJxvEeeZtZcaHO7lTw" contract="_KRbDMJxvEeeZtZcaHO7lTw"/>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_0EydEJ3bEeejkbT59sZlmg" name="DynamicAdvisedInterceptor" visibility="public">
+      <ownedOperation xmi:id="_3kEAUJ3bEeejkbT59sZlmg" name="intercept">
+        <ownedParameter xmi:id="_7QQlQJ3bEeejkbT59sZlmg" name="proxy"/>
+        <ownedParameter xmi:id="_7jEMgJ3bEeejkbT59sZlmg" name="method"/>
+        <ownedParameter xmi:id="_7yuZIJ3bEeejkbT59sZlmg" name="args"/>
+        <ownedParameter xmi:id="_8A4w8J3bEeejkbT59sZlmg" name="methodProxy"/>
+      </ownedOperation>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_DWGD8J3cEeejkbT59sZlmg" name="CglibMethodInvocation" visibility="public">
+      <generalization xmi:id="_HWVmQJ3cEeejkbT59sZlmg" general="_M4UsoJxyEeeZtZcaHO7lTw"/>
+    </nestedClassifier>
+  </packagedElement>
+</uml:Model>

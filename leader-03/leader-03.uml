@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_KBfRoIoXEeee3pAzmBZFuw" name="leader-03">
+  <packageImport xmi:id="_h81fQIu-EeeW1uN8Q92iuQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_zLgSEIu7EeeW1uN8Q92iuQ" name="Application" visibility="public">
+    <ownedOperation xmi:id="_932gAIu7EeeW1uN8Q92iuQ" name="main" isStatic="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_EpcIkIu8EeeW1uN8Q92iuQ" name="DataSourceConfig" visibility="public">
+    <ownedOperation xmi:id="_liKcoIu9EeeW1uN8Q92iuQ" name="getDataSource"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_IurfoIu8EeeW1uN8Q92iuQ" name="HttpSessionConfig" visibility="public"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_M_miQIu8EeeW1uN8Q92iuQ" name="MyBatisMapperScannerConfig" visibility="public">
+    <ownedOperation xmi:id="_wuuw0Iu_EeeW1uN8Q92iuQ" name="getMapperScannerConfigurer"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_PvvuoIu8EeeW1uN8Q92iuQ" name="MyBatisConfig" visibility="public">
+    <ownedAttribute xmi:id="_kTyIgIu-EeeW1uN8Q92iuQ" name="DataSource" visibility="public">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_7oovEIu-EeeW1uN8Q92iuQ"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kTzWoIu-EeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kTzWoYu-EeeW1uN8Q92iuQ" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_o4SD4Iu9EeeW1uN8Q92iuQ" name="getMyBatisSqlSessionFactory"/>
+    <ownedOperation xmi:id="_rvik4Iu9EeeW1uN8Q92iuQ" name="getPaginationInterceptor"/>
+    <ownedOperation xmi:id="_uI5o8Iu9EeeW1uN8Q92iuQ" name="getSqlSessionTemplate"/>
+    <ownedOperation xmi:id="_wwbr4Iu9EeeW1uN8Q92iuQ" name="getMapperScannerConfigurer"/>
+    <ownedOperation xmi:id="_1JpH0Iu9EeeW1uN8Q92iuQ" name="annotationDrivenTransactionManager"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_C4FqQIu9EeeW1uN8Q92iuQ" name="ProductionConfig" visibility="public"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_FZ_mUIu9EeeW1uN8Q92iuQ" name="TestConfig" visibility="public">
+    <ownedOperation xmi:id="_UKYmkIu_EeeW1uN8Q92iuQ" name="getTestDataInitialization"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_YchxMIu_EeeW1uN8Q92iuQ" name="TestDataInitialization" visibility="public">
+    <ownedAttribute xmi:id="_jhhvsIu_EeeW1uN8Q92iuQ" name="SqlSessionTemplate" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jhhvsYu_EeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jhhvsou_EeeW1uN8Q92iuQ" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_brWdoIu_EeeW1uN8Q92iuQ" name="dataInit"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_nPGNoIu_EeeW1uN8Q92iuQ" client="_FZ_mUIu9EeeW1uN8Q92iuQ" supplier="_YchxMIu_EeeW1uN8Q92iuQ"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_A7y1UIvAEeeW1uN8Q92iuQ" name="IPageStrategy" visibility="public">
+    <ownedOperation xmi:id="_DjxkMIvAEeeW1uN8Q92iuQ" name="getDatabaseType"/>
+    <ownedOperation xmi:id="_HenpIIvAEeeW1uN8Q92iuQ" name="generatePageSql"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_KknwwIvAEeeW1uN8Q92iuQ" name="OraclePageStrategy" visibility="public">
+    <interfaceRealization xmi:id="_zZIFEIvAEeeW1uN8Q92iuQ" client="_KknwwIvAEeeW1uN8Q92iuQ" supplier="_A7y1UIvAEeeW1uN8Q92iuQ" contract="_A7y1UIvAEeeW1uN8Q92iuQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_vRikoIvAEeeW1uN8Q92iuQ" name="MySQLPageStrategy" visibility="public">
+    <interfaceRealization xmi:id="_yuwSYIvAEeeW1uN8Q92iuQ" client="_vRikoIvAEeeW1uN8Q92iuQ" supplier="_A7y1UIvAEeeW1uN8Q92iuQ" contract="_A7y1UIvAEeeW1uN8Q92iuQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_5xRS4IvAEeeW1uN8Q92iuQ" name="PageStrategyContext" visibility="public">
+    <ownedAttribute xmi:id="_20b44IvBEeeW1uN8Q92iuQ" name="IPageStrategy" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_20cf8IvBEeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_20cf8YvBEeeW1uN8Q92iuQ" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_6rQZcIvBEeeW1uN8Q92iuQ" name="IPageParameter" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6rRAgIvBEeeW1uN8Q92iuQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6rRAgYvBEeeW1uN8Q92iuQ" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_Axa74IvBEeeW1uN8Q92iuQ" name="buildPagingSql"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_b8VYkIvCEeeW1uN8Q92iuQ" name="pageStrategyContextsToIPageStrategys" memberEnd="_b8VYkYvCEeeW1uN8Q92iuQ _b8V_oovCEeeW1uN8Q92iuQ" navigableOwnedEnd="_b8V_oovCEeeW1uN8Q92iuQ">
+    <ownedEnd xmi:id="_b8VYkYvCEeeW1uN8Q92iuQ" name="pageStrategyContexts" type="_5xRS4IvAEeeW1uN8Q92iuQ" association="_b8VYkIvCEeeW1uN8Q92iuQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_b8V_oIvCEeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_b8V_oYvCEeeW1uN8Q92iuQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_b8V_oovCEeeW1uN8Q92iuQ" name="iPageStrategys" type="_A7y1UIvAEeeW1uN8Q92iuQ" aggregation="shared" association="_b8VYkIvCEeeW1uN8Q92iuQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_b8V_o4vCEeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_b8V_pIvCEeeW1uN8Q92iuQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_iT5XkIvCEeeW1uN8Q92iuQ" name="PageStrategyFactory" visibility="public">
+    <ownedAttribute xmi:id="_x7OcUIvDEeeW1uN8Q92iuQ" name="ApplicationContext" visibility="public">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_zxG_4IvDEeeW1uN8Q92iuQ"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x7PDYIvDEeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x7PDYYvDEeeW1uN8Q92iuQ" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_m5EL4IvCEeeW1uN8Q92iuQ" name="getPageStrategy">
+      <ownedParameter xmi:id="_a2-dkIvDEeeW1uN8Q92iuQ" name="DatabaseType"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_1IRckIvCEeeW1uN8Q92iuQ" client="_iT5XkIvCEeeW1uN8Q92iuQ" supplier="_A7y1UIvAEeeW1uN8Q92iuQ"/>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_-Qm6EIvCEeeW1uN8Q92iuQ" name="DatabaseType" visibility="public"/>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_CKWy0IvDEeeW1uN8Q92iuQ" name="PageStrategyType" visibility="public"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_SszRcIvDEeeW1uN8Q92iuQ" client="_iT5XkIvCEeeW1uN8Q92iuQ" supplier="_CKWy0IvDEeeW1uN8Q92iuQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_TUdHUIvDEeeW1uN8Q92iuQ" client="_iT5XkIvCEeeW1uN8Q92iuQ" supplier="_-Qm6EIvCEeeW1uN8Q92iuQ"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_i89tQIvDEeeW1uN8Q92iuQ" name="IPageParameter" visibility="public" isAbstract="true">
+    <ownedOperation xmi:id="_5k2gIIvDEeeW1uN8Q92iuQ" name="getStart" isAbstract="true"/>
+    <ownedOperation xmi:id="_-j4l8IvDEeeW1uN8Q92iuQ" name="getLimit" isAbstract="true"/>
+    <ownedOperation xmi:id="_Ac7LMIvEEeeW1uN8Q92iuQ" name="isRequireTotal" isAbstract="true"/>
+    <ownedOperation xmi:id="_COMUgIvEEeeW1uN8Q92iuQ" name="setTotal" isAbstract="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_HUm0sIvEEeeW1uN8Q92iuQ" name="PageParameter" visibility="public">
+    <interfaceRealization xmi:id="_Mha30IvEEeeW1uN8Q92iuQ" client="_HUm0sIvEEeeW1uN8Q92iuQ" supplier="_i89tQIvDEeeW1uN8Q92iuQ" contract="_i89tQIvDEeeW1uN8Q92iuQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_hxJk8IvEEeeW1uN8Q92iuQ" name="PageConverterFactory" visibility="public">
+    <ownedAttribute xmi:id="__CbGoIvEEeeW1uN8Q92iuQ" name="List&lt;String>" visibility="public">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_JDjNUIvFEeeW1uN8Q92iuQ"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__CbtsIvEEeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__CbtsYvEEeeW1uN8Q92iuQ" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_QC_rsIvFEeeW1uN8Q92iuQ" name="Map&lt;String, Class&lt;IPageConverter>>" visibility="public">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_UWycIIvFEeeW1uN8Q92iuQ"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QC_rsYvFEeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QC_rsovFEeeW1uN8Q92iuQ" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_nG3FYIvEEeeW1uN8Q92iuQ" name="createPageConverter">
+      <ownedParameter xmi:id="_pGbwcIvEEeeW1uN8Q92iuQ" name="Object"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_YxP1QIvFEeeW1uN8Q92iuQ" name="IPageConverter" visibility="public" isAbstract="true">
+    <ownedOperation xmi:id="_gNeWQIvFEeeW1uN8Q92iuQ" name="toPage" isAbstract="true"/>
+    <ownedOperation xmi:id="_pjRA8IvFEeeW1uN8Q92iuQ" name="returnTotal" isAbstract="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_wYyHQIvFEeeW1uN8Q92iuQ" client="_hxJk8IvEEeeW1uN8Q92iuQ" supplier="_YxP1QIvFEeeW1uN8Q92iuQ"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_CSvV8IvHEeeW1uN8Q92iuQ" name="QueryPage" visibility="public" isAbstract="true"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_GlGjAIvHEeeW1uN8Q92iuQ" name="CustomPageConverter" visibility="public">
+    <interfaceRealization xmi:id="_Ksa9sIvHEeeW1uN8Q92iuQ" client="_GlGjAIvHEeeW1uN8Q92iuQ" supplier="_YxP1QIvFEeeW1uN8Q92iuQ" contract="_YxP1QIvFEeeW1uN8Q92iuQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_SddREIvHEeeW1uN8Q92iuQ" client="_GlGjAIvHEeeW1uN8Q92iuQ" supplier="_CSvV8IvHEeeW1uN8Q92iuQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_TAcCUIvHEeeW1uN8Q92iuQ" client="_GlGjAIvHEeeW1uN8Q92iuQ" supplier="_HUm0sIvEEeeW1uN8Q92iuQ"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_bwMAsIvHEeeW1uN8Q92iuQ" name="IBaseDao" visibility="public" isAbstract="true">
+    <ownedOperation xmi:id="_fBYEoIvHEeeW1uN8Q92iuQ" name="save" isAbstract="true"/>
+    <ownedOperation xmi:id="_g7AfwIvHEeeW1uN8Q92iuQ" name="batchSave" isAbstract="true"/>
+    <ownedOperation xmi:id="_ujWkwIvHEeeW1uN8Q92iuQ" name="update" isAbstract="true"/>
+    <ownedOperation xmi:id="_xxmpcIvHEeeW1uN8Q92iuQ" name="deleteById" isAbstract="true"/>
+    <ownedOperation xmi:id="_zn9HEIvHEeeW1uN8Q92iuQ" name="deleteByIds" isAbstract="true"/>
+    <ownedOperation xmi:id="_6FiOgIvHEeeW1uN8Q92iuQ" name="getById" isAbstract="true"/>
+    <ownedOperation xmi:id="_a6k8cIvJEeeW1uN8Q92iuQ" name="queryList" isAbstract="true"/>
+    <ownedOperation xmi:id="_eKa8kIvJEeeW1uN8Q92iuQ" name="queryWithPage" isAbstract="true"/>
+    <ownedOperation xmi:id="_huNMYIvJEeeW1uN8Q92iuQ" name="queryCount" isAbstract="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_qKdccIvIEeeW1uN8Q92iuQ" name="IUserInfoDao" visibility="public" isAbstract="true">
+    <generalization xmi:id="_vD7FwIvIEeeW1uN8Q92iuQ" general="_bwMAsIvHEeeW1uN8Q92iuQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_yX1tkIvIEeeW1uN8Q92iuQ" name="IBaseService" visibility="public" isAbstract="true">
+    <ownedOperation xmi:id="_-LPqMIvIEeeW1uN8Q92iuQ" name="save" isAbstract="true"/>
+    <ownedOperation xmi:id="_AIy8AIvJEeeW1uN8Q92iuQ" name="batchSave" isAbstract="true"/>
+    <ownedOperation xmi:id="_CsxUoIvJEeeW1uN8Q92iuQ" name="update"/>
+    <ownedOperation xmi:id="_EVPuUIvJEeeW1uN8Q92iuQ" name="deleteById" isAbstract="true"/>
+    <ownedOperation xmi:id="_HT-JQIvJEeeW1uN8Q92iuQ" name="deleteByIds" isAbstract="true"/>
+    <ownedOperation xmi:id="_KMEXwIvJEeeW1uN8Q92iuQ" name="getById" isAbstract="true"/>
+    <ownedOperation xmi:id="_O_89gIvJEeeW1uN8Q92iuQ" name="queryList" isAbstract="true"/>
+    <ownedOperation xmi:id="_QM4DoIvJEeeW1uN8Q92iuQ" name="queryWithPage" isAbstract="true"/>
+    <ownedOperation xmi:id="_RkhMAIvJEeeW1uN8Q92iuQ" name="queryCount" isAbstract="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_m85e0IvJEeeW1uN8Q92iuQ" name="iBaseServicesToIBaseDaos" memberEnd="_m86F4IvJEeeW1uN8Q92iuQ _m86F44vJEeeW1uN8Q92iuQ" navigableOwnedEnd="_m86F44vJEeeW1uN8Q92iuQ">
+    <ownedEnd xmi:id="_m86F4IvJEeeW1uN8Q92iuQ" name="iBaseServices" type="_yX1tkIvIEeeW1uN8Q92iuQ" association="_m85e0IvJEeeW1uN8Q92iuQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_m86F4YvJEeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_m86F4ovJEeeW1uN8Q92iuQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_m86F44vJEeeW1uN8Q92iuQ" name="iBaseDaos" type="_bwMAsIvHEeeW1uN8Q92iuQ" aggregation="shared" association="_m85e0IvJEeeW1uN8Q92iuQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_m86F5IvJEeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_m86F5YvJEeeW1uN8Q92iuQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_zlLN8IvJEeeW1uN8Q92iuQ" name="IUserInfoService" visibility="public" isAbstract="true">
+    <generalization xmi:id="_SYhUcIvMEeeW1uN8Q92iuQ" general="_yX1tkIvIEeeW1uN8Q92iuQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_DSFLsIvKEeeW1uN8Q92iuQ" name="UserInfoServiceImpl" visibility="public">
+    <generalization xmi:id="_zlKxcIvKEeeW1uN8Q92iuQ" general="_hl2sMIvKEeeW1uN8Q92iuQ"/>
+    <ownedAttribute xmi:id="_UKgaAIvNEeeW1uN8Q92iuQ" name="IUserDao" visibility="public">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_WrDEIIvNEeeW1uN8Q92iuQ"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UKhBEIvNEeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UKhBEYvNEeeW1uN8Q92iuQ" value="1"/>
+    </ownedAttribute>
+    <interfaceRealization xmi:id="_4FHHgIvKEeeW1uN8Q92iuQ" client="_DSFLsIvKEeeW1uN8Q92iuQ" supplier="_zlLN8IvJEeeW1uN8Q92iuQ" contract="_zlLN8IvJEeeW1uN8Q92iuQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_hl2sMIvKEeeW1uN8Q92iuQ" name="BaseServiceImpl" visibility="public" isAbstract="true">
+    <interfaceRealization xmi:id="_j9bnkIvKEeeW1uN8Q92iuQ" client="_hl2sMIvKEeeW1uN8Q92iuQ" supplier="_yX1tkIvIEeeW1uN8Q92iuQ" contract="_yX1tkIvIEeeW1uN8Q92iuQ"/>
+    <ownedOperation xmi:id="_VFfGcIvLEeeW1uN8Q92iuQ" name="getBaseDao" isAbstract="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_3TWBcIvMEeeW1uN8Q92iuQ" name="UserAction" visibility="public">
+    <ownedAttribute xmi:id="_bYg40IvNEeeW1uN8Q92iuQ" name="IUserInfoService" visibility="public">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_cXebcIvNEeeW1uN8Q92iuQ"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bYg40YvNEeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bYg40ovNEeeW1uN8Q92iuQ" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_AKyjQIvNEeeW1uN8Q92iuQ" name="createUser"/>
+    <ownedOperation xmi:id="_Gosa0IvNEeeW1uN8Q92iuQ" name="deleteUser"/>
+    <ownedOperation xmi:id="_I5upUIvNEeeW1uN8Q92iuQ" name="disableUser"/>
+    <ownedOperation xmi:id="_KUHjsIvNEeeW1uN8Q92iuQ" name="queryUsers"/>
+    <ownedOperation xmi:id="_Lz6igIvNEeeW1uN8Q92iuQ" name="pagingQueryUser"/>
+    <ownedOperation xmi:id="_NEgnsIvNEeeW1uN8Q92iuQ" name="login"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_RksOUIvNEeeW1uN8Q92iuQ" name="userInfoServiceImplsToIUserInfoDaos" memberEnd="_RksOUYvNEeeW1uN8Q92iuQ _RksOVIvNEeeW1uN8Q92iuQ" navigableOwnedEnd="_RksOVIvNEeeW1uN8Q92iuQ">
+    <ownedEnd xmi:id="_RksOUYvNEeeW1uN8Q92iuQ" name="userInfoServiceImpls" type="_DSFLsIvKEeeW1uN8Q92iuQ" association="_RksOUIvNEeeW1uN8Q92iuQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RksOUovNEeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RksOU4vNEeeW1uN8Q92iuQ" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_RksOVIvNEeeW1uN8Q92iuQ" name="iUserInfoDaos" type="_qKdccIvIEeeW1uN8Q92iuQ" aggregation="shared" association="_RksOUIvNEeeW1uN8Q92iuQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RksOVYvNEeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RksOVovNEeeW1uN8Q92iuQ" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_uxh78IvNEeeW1uN8Q92iuQ" name="userActionsToIUserInfoServices" memberEnd="_uxh78YvNEeeW1uN8Q92iuQ _uxijAYvNEeeW1uN8Q92iuQ" navigableOwnedEnd="_uxijAYvNEeeW1uN8Q92iuQ">
+    <ownedEnd xmi:id="_uxh78YvNEeeW1uN8Q92iuQ" name="userActions" type="_3TWBcIvMEeeW1uN8Q92iuQ" association="_uxh78IvNEeeW1uN8Q92iuQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uxh78ovNEeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uxijAIvNEeeW1uN8Q92iuQ" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_uxijAYvNEeeW1uN8Q92iuQ" name="iUserInfoServices" type="_zlLN8IvJEeeW1uN8Q92iuQ" aggregation="shared" association="_uxh78IvNEeeW1uN8Q92iuQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uxijAovNEeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uxijA4vNEeeW1uN8Q92iuQ" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_3mo7cIvNEeeW1uN8Q92iuQ" name="PaginationInterceptor" visibility="public">
+    <ownedOperation xmi:id="_-rVGMIvNEeeW1uN8Q92iuQ" name="intercept"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_F1xToIvOEeeW1uN8Q92iuQ" client="_3mo7cIvNEeeW1uN8Q92iuQ" supplier="_iT5XkIvCEeeW1uN8Q92iuQ"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_S_dGsIvOEeeW1uN8Q92iuQ" name="paginationInterceptorsToPageConverterFactorys" memberEnd="_S_dGsYvOEeeW1uN8Q92iuQ _S_dtwovOEeeW1uN8Q92iuQ" navigableOwnedEnd="_S_dtwovOEeeW1uN8Q92iuQ">
+    <ownedEnd xmi:id="_S_dGsYvOEeeW1uN8Q92iuQ" name="paginationInterceptors" type="_3mo7cIvNEeeW1uN8Q92iuQ" association="_S_dGsIvOEeeW1uN8Q92iuQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_S_dtwIvOEeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_S_dtwYvOEeeW1uN8Q92iuQ" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_S_dtwovOEeeW1uN8Q92iuQ" name="pageConverterFactorys" type="_hxJk8IvEEeeW1uN8Q92iuQ" aggregation="shared" association="_S_dGsIvOEeeW1uN8Q92iuQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_S_dtw4vOEeeW1uN8Q92iuQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_S_dtxIvOEeeW1uN8Q92iuQ" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Y_60UIvOEeeW1uN8Q92iuQ" name="MD5Util" visibility="public"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_brtFIIvOEeeW1uN8Q92iuQ" name="ReflectHelper" visibility="public"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_c-0S0IvOEeeW1uN8Q92iuQ" name="UUIDUtil" visibility="public"/>
+  <packagedElement xmi:type="uml:Model" xmi:id="_FYvOAIv9EeemJK1ftGYycA" name="leader-03">
+    <packageImport xmi:id="_FYvOAYv9EeemJK1ftGYycA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOAov9EeemJK1ftGYycA" name="Application" visibility="public">
+      <ownedOperation xmi:id="_FYvOA4v9EeemJK1ftGYycA" name="main" isStatic="true"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOBIv9EeemJK1ftGYycA" name="DataSourceConfig" visibility="public">
+      <ownedOperation xmi:id="_FYvOBYv9EeemJK1ftGYycA" name="getDataSource"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOBov9EeemJK1ftGYycA" name="HttpSessionConfig" visibility="public"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOB4v9EeemJK1ftGYycA" name="MyBatisMapperScannerConfig" visibility="public">
+      <ownedOperation xmi:id="_FYvOCIv9EeemJK1ftGYycA" name="getMapperScannerConfigurer"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOCYv9EeemJK1ftGYycA" name="MyBatisConfig" visibility="public">
+      <ownedAttribute xmi:id="_FYvOCov9EeemJK1ftGYycA" name="DataSource" visibility="public">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_7oovEIu-EeeW1uN8Q92iuQ"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvOC4v9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvODIv9EeemJK1ftGYycA" value="1"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_FYvODYv9EeemJK1ftGYycA" name="getMyBatisSqlSessionFactory"/>
+      <ownedOperation xmi:id="_FYvODov9EeemJK1ftGYycA" name="getPaginationInterceptor"/>
+      <ownedOperation xmi:id="_FYvOD4v9EeemJK1ftGYycA" name="getSqlSessionTemplate"/>
+      <ownedOperation xmi:id="_FYvOEIv9EeemJK1ftGYycA" name="getMapperScannerConfigurer"/>
+      <ownedOperation xmi:id="_FYvOEYv9EeemJK1ftGYycA" name="annotationDrivenTransactionManager"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOEov9EeemJK1ftGYycA" name="ProductionConfig" visibility="public"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOE4v9EeemJK1ftGYycA" name="TestConfig" visibility="public">
+      <ownedOperation xmi:id="_FYvOFIv9EeemJK1ftGYycA" name="getTestDataInitialization"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOFYv9EeemJK1ftGYycA" name="TestDataInitialization" visibility="public">
+      <ownedAttribute xmi:id="_FYvOFov9EeemJK1ftGYycA" name="SqlSessionTemplate" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvOF4v9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvOGIv9EeemJK1ftGYycA" value="1"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_FYvOGYv9EeemJK1ftGYycA" name="dataInit"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_FYvOGov9EeemJK1ftGYycA" client="_FYvOE4v9EeemJK1ftGYycA" supplier="_FYvOFYv9EeemJK1ftGYycA"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_FYvOG4v9EeemJK1ftGYycA" name="IPageStrategy" visibility="public">
+      <ownedOperation xmi:id="_FYvOHIv9EeemJK1ftGYycA" name="getDatabaseType"/>
+      <ownedOperation xmi:id="_FYvOHYv9EeemJK1ftGYycA" name="generatePageSql"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOHov9EeemJK1ftGYycA" name="OraclePageStrategy" visibility="public">
+      <interfaceRealization xmi:id="_FYvOH4v9EeemJK1ftGYycA" client="_FYvOHov9EeemJK1ftGYycA _FYvOHov9EeemJK1ftGYycA" supplier="_FYvOG4v9EeemJK1ftGYycA" contract="_FYvOG4v9EeemJK1ftGYycA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOIIv9EeemJK1ftGYycA" name="MySQLPageStrategy" visibility="public">
+      <interfaceRealization xmi:id="_FYvOIYv9EeemJK1ftGYycA" client="_FYvOIIv9EeemJK1ftGYycA _FYvOIIv9EeemJK1ftGYycA" supplier="_FYvOG4v9EeemJK1ftGYycA" contract="_FYvOG4v9EeemJK1ftGYycA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOIov9EeemJK1ftGYycA" name="PageStrategyContext" visibility="public">
+      <ownedAttribute xmi:id="_FYvOI4v9EeemJK1ftGYycA" name="IPageStrategy" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvOJIv9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvOJYv9EeemJK1ftGYycA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_FYvOJov9EeemJK1ftGYycA" name="IPageParameter" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvOJ4v9EeemJK1ftGYycA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvOKIv9EeemJK1ftGYycA" value="1"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_FYvOKYv9EeemJK1ftGYycA" name="buildPagingSql"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_FYvOKov9EeemJK1ftGYycA" name="pageStrategyContextsToIPageStrategys" memberEnd="_FYvOK4v9EeemJK1ftGYycA _FYvOLov9EeemJK1ftGYycA" navigableOwnedEnd="_FYvOLov9EeemJK1ftGYycA">
+      <ownedEnd xmi:id="_FYvOK4v9EeemJK1ftGYycA" name="pageStrategyContexts" type="_FYvOIov9EeemJK1ftGYycA" association="_FYvOKov9EeemJK1ftGYycA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvOLIv9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvOLYv9EeemJK1ftGYycA" value="1"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_FYvOLov9EeemJK1ftGYycA" name="iPageStrategys" type="_FYvOG4v9EeemJK1ftGYycA" aggregation="shared" association="_FYvOKov9EeemJK1ftGYycA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvOL4v9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvOMIv9EeemJK1ftGYycA" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOMYv9EeemJK1ftGYycA" name="PageStrategyFactory" visibility="public">
+      <ownedAttribute xmi:id="_FYvOMov9EeemJK1ftGYycA" name="ApplicationContext" visibility="public">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_zxG_4IvDEeeW1uN8Q92iuQ"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvOM4v9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvONIv9EeemJK1ftGYycA" value="1"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_FYvONYv9EeemJK1ftGYycA" name="getPageStrategy">
+        <ownedParameter xmi:id="_FYvONov9EeemJK1ftGYycA" name="DatabaseType"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_FYvON4v9EeemJK1ftGYycA" client="_FYvOMYv9EeemJK1ftGYycA" supplier="_FYvOG4v9EeemJK1ftGYycA"/>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_FYvOOIv9EeemJK1ftGYycA" name="DatabaseType" visibility="public"/>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_FYvOOYv9EeemJK1ftGYycA" name="PageStrategyType" visibility="public"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_FYvOOov9EeemJK1ftGYycA" client="_FYvOMYv9EeemJK1ftGYycA" supplier="_FYvOOYv9EeemJK1ftGYycA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_FYvOO4v9EeemJK1ftGYycA" client="_FYvOMYv9EeemJK1ftGYycA" supplier="_FYvOOIv9EeemJK1ftGYycA"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_FYvOPIv9EeemJK1ftGYycA" name="IPageParameter" visibility="public" isAbstract="true">
+      <ownedOperation xmi:id="_FYvOPYv9EeemJK1ftGYycA" name="getStart" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOPov9EeemJK1ftGYycA" name="getLimit" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOP4v9EeemJK1ftGYycA" name="isRequireTotal" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOQIv9EeemJK1ftGYycA" name="setTotal" isAbstract="true"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOQYv9EeemJK1ftGYycA" name="PageParameter" visibility="public">
+      <interfaceRealization xmi:id="_FYvOQov9EeemJK1ftGYycA" client="_FYvOQYv9EeemJK1ftGYycA _FYvOQYv9EeemJK1ftGYycA" supplier="_FYvOPIv9EeemJK1ftGYycA" contract="_FYvOPIv9EeemJK1ftGYycA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOQ4v9EeemJK1ftGYycA" name="PageConverterFactory" visibility="public">
+      <ownedAttribute xmi:id="_FYvORIv9EeemJK1ftGYycA" name="List&lt;String>" visibility="public">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_JDjNUIvFEeeW1uN8Q92iuQ"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvORYv9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvORov9EeemJK1ftGYycA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_FYvOR4v9EeemJK1ftGYycA" name="Map&lt;String, Class&lt;IPageConverter>>" visibility="public">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_UWycIIvFEeeW1uN8Q92iuQ"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvOSIv9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvOSYv9EeemJK1ftGYycA" value="1"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_FYvOSov9EeemJK1ftGYycA" name="createPageConverter">
+        <ownedParameter xmi:id="_FYvOS4v9EeemJK1ftGYycA" name="Object"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_FYvOTIv9EeemJK1ftGYycA" name="IPageConverter" visibility="public" isAbstract="true">
+      <ownedOperation xmi:id="_FYvOTYv9EeemJK1ftGYycA" name="toPage" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOTov9EeemJK1ftGYycA" name="returnTotal" isAbstract="true"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_FYvOT4v9EeemJK1ftGYycA" client="_FYvOQ4v9EeemJK1ftGYycA" supplier="_FYvOTIv9EeemJK1ftGYycA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOUIv9EeemJK1ftGYycA" name="QueryPage" visibility="public" isAbstract="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOUYv9EeemJK1ftGYycA" name="CustomPageConverter" visibility="public">
+      <interfaceRealization xmi:id="_FYvOUov9EeemJK1ftGYycA" client="_FYvOUYv9EeemJK1ftGYycA _FYvOUYv9EeemJK1ftGYycA" supplier="_FYvOTIv9EeemJK1ftGYycA" contract="_FYvOTIv9EeemJK1ftGYycA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_FYvOU4v9EeemJK1ftGYycA" client="_FYvOUYv9EeemJK1ftGYycA" supplier="_FYvOUIv9EeemJK1ftGYycA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_FYvOVIv9EeemJK1ftGYycA" client="_FYvOUYv9EeemJK1ftGYycA" supplier="_FYvOQYv9EeemJK1ftGYycA"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_FYvOVYv9EeemJK1ftGYycA" name="IBaseDao" visibility="public" isAbstract="true">
+      <ownedOperation xmi:id="_FYvOVov9EeemJK1ftGYycA" name="save" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOV4v9EeemJK1ftGYycA" name="batchSave" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOWIv9EeemJK1ftGYycA" name="update" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOWYv9EeemJK1ftGYycA" name="deleteById" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOWov9EeemJK1ftGYycA" name="deleteByIds" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOW4v9EeemJK1ftGYycA" name="getById" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOXIv9EeemJK1ftGYycA" name="queryList" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOXYv9EeemJK1ftGYycA" name="queryWithPage" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOXov9EeemJK1ftGYycA" name="queryCount" isAbstract="true"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_FYvOX4v9EeemJK1ftGYycA" name="IUserInfoDao" visibility="public" isAbstract="true">
+      <generalization xmi:id="_FYvOYIv9EeemJK1ftGYycA" general="_FYvOVYv9EeemJK1ftGYycA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_FYvOYYv9EeemJK1ftGYycA" name="IBaseService" visibility="public" isAbstract="true">
+      <ownedOperation xmi:id="_FYvOYov9EeemJK1ftGYycA" name="save" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOY4v9EeemJK1ftGYycA" name="batchSave" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOZIv9EeemJK1ftGYycA" name="update"/>
+      <ownedOperation xmi:id="_FYvOZYv9EeemJK1ftGYycA" name="deleteById" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOZov9EeemJK1ftGYycA" name="deleteByIds" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOZ4v9EeemJK1ftGYycA" name="getById" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOaIv9EeemJK1ftGYycA" name="queryList" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOaYv9EeemJK1ftGYycA" name="queryWithPage" isAbstract="true"/>
+      <ownedOperation xmi:id="_FYvOaov9EeemJK1ftGYycA" name="queryCount" isAbstract="true"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_FYvOa4v9EeemJK1ftGYycA" name="iBaseServicesToIBaseDaos" memberEnd="_FYvObIv9EeemJK1ftGYycA _FYvOb4v9EeemJK1ftGYycA" navigableOwnedEnd="_FYvOb4v9EeemJK1ftGYycA">
+      <ownedEnd xmi:id="_FYvObIv9EeemJK1ftGYycA" name="iBaseServices" type="_FYvOYYv9EeemJK1ftGYycA" association="_FYvOa4v9EeemJK1ftGYycA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvObYv9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvObov9EeemJK1ftGYycA" value="1"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_FYvOb4v9EeemJK1ftGYycA" name="iBaseDaos" type="_FYvOVYv9EeemJK1ftGYycA" aggregation="shared" association="_FYvOa4v9EeemJK1ftGYycA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvOcIv9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvOcYv9EeemJK1ftGYycA" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_FYvOcov9EeemJK1ftGYycA" name="IUserInfoService" visibility="public" isAbstract="true">
+      <generalization xmi:id="_FYvOc4v9EeemJK1ftGYycA" general="_FYvOYYv9EeemJK1ftGYycA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOdIv9EeemJK1ftGYycA" name="UserInfoServiceImpl" visibility="public">
+      <generalization xmi:id="_FYvOdYv9EeemJK1ftGYycA" general="_FYvOeov9EeemJK1ftGYycA"/>
+      <ownedAttribute xmi:id="_FYvOdov9EeemJK1ftGYycA" name="IUserDao" visibility="public">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_WrDEIIvNEeeW1uN8Q92iuQ"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvOd4v9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvOeIv9EeemJK1ftGYycA" value="1"/>
+      </ownedAttribute>
+      <interfaceRealization xmi:id="_FYvOeYv9EeemJK1ftGYycA" client="_FYvOdIv9EeemJK1ftGYycA _FYvOdIv9EeemJK1ftGYycA" supplier="_FYvOcov9EeemJK1ftGYycA" contract="_FYvOcov9EeemJK1ftGYycA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOeov9EeemJK1ftGYycA" name="BaseServiceImpl" visibility="public" isAbstract="true">
+      <interfaceRealization xmi:id="_FYvOe4v9EeemJK1ftGYycA" client="_FYvOeov9EeemJK1ftGYycA _FYvOeov9EeemJK1ftGYycA" supplier="_FYvOYYv9EeemJK1ftGYycA" contract="_FYvOYYv9EeemJK1ftGYycA"/>
+      <ownedOperation xmi:id="_FYvOfIv9EeemJK1ftGYycA" name="getBaseDao" isAbstract="true"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOfYv9EeemJK1ftGYycA" name="UserAction" visibility="public">
+      <ownedAttribute xmi:id="_FYvOfov9EeemJK1ftGYycA" name="IUserInfoService" visibility="public">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_cXebcIvNEeeW1uN8Q92iuQ"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvOf4v9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvOgIv9EeemJK1ftGYycA" value="1"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_FYvOgYv9EeemJK1ftGYycA" name="createUser"/>
+      <ownedOperation xmi:id="_FYvOgov9EeemJK1ftGYycA" name="deleteUser"/>
+      <ownedOperation xmi:id="_FYvOg4v9EeemJK1ftGYycA" name="disableUser"/>
+      <ownedOperation xmi:id="_FYvOhIv9EeemJK1ftGYycA" name="queryUsers"/>
+      <ownedOperation xmi:id="_FYvOhYv9EeemJK1ftGYycA" name="pagingQueryUser"/>
+      <ownedOperation xmi:id="_FYvOhov9EeemJK1ftGYycA" name="login"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_FYvOh4v9EeemJK1ftGYycA" name="userInfoServiceImplsToIUserInfoDaos" memberEnd="_FYvOiIv9EeemJK1ftGYycA _FYvOi4v9EeemJK1ftGYycA" navigableOwnedEnd="_FYvOi4v9EeemJK1ftGYycA">
+      <ownedEnd xmi:id="_FYvOiIv9EeemJK1ftGYycA" name="userInfoServiceImpls" type="_FYvOdIv9EeemJK1ftGYycA" association="_FYvOh4v9EeemJK1ftGYycA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvOiYv9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvOiov9EeemJK1ftGYycA" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_FYvOi4v9EeemJK1ftGYycA" name="iUserInfoDaos" type="_FYvOX4v9EeemJK1ftGYycA" aggregation="shared" association="_FYvOh4v9EeemJK1ftGYycA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvOjIv9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvOjYv9EeemJK1ftGYycA" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_FYvOjov9EeemJK1ftGYycA" name="userActionsToIUserInfoServices" memberEnd="_FYvOj4v9EeemJK1ftGYycA _FYvOkov9EeemJK1ftGYycA" navigableOwnedEnd="_FYvOkov9EeemJK1ftGYycA">
+      <ownedEnd xmi:id="_FYvOj4v9EeemJK1ftGYycA" name="userActions" type="_FYvOfYv9EeemJK1ftGYycA" association="_FYvOjov9EeemJK1ftGYycA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvOkIv9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvOkYv9EeemJK1ftGYycA" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_FYvOkov9EeemJK1ftGYycA" name="iUserInfoServices" type="_FYvOcov9EeemJK1ftGYycA" aggregation="shared" association="_FYvOjov9EeemJK1ftGYycA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvOk4v9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvOlIv9EeemJK1ftGYycA" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOlYv9EeemJK1ftGYycA" name="PaginationInterceptor" visibility="public">
+      <ownedOperation xmi:id="_FYvOlov9EeemJK1ftGYycA" name="intercept"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_FYvOl4v9EeemJK1ftGYycA" client="_FYvOlYv9EeemJK1ftGYycA" supplier="_FYvOMYv9EeemJK1ftGYycA"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_FYvOmIv9EeemJK1ftGYycA" name="paginationInterceptorsToPageConverterFactorys" memberEnd="_FYvOmYv9EeemJK1ftGYycA _FYvOnIv9EeemJK1ftGYycA" navigableOwnedEnd="_FYvOnIv9EeemJK1ftGYycA">
+      <ownedEnd xmi:id="_FYvOmYv9EeemJK1ftGYycA" name="paginationInterceptors" type="_FYvOlYv9EeemJK1ftGYycA" association="_FYvOmIv9EeemJK1ftGYycA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvOmov9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvOm4v9EeemJK1ftGYycA" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_FYvOnIv9EeemJK1ftGYycA" name="pageConverterFactorys" type="_FYvOQ4v9EeemJK1ftGYycA" aggregation="shared" association="_FYvOmIv9EeemJK1ftGYycA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYvOnYv9EeemJK1ftGYycA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYvOnov9EeemJK1ftGYycA" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOn4v9EeemJK1ftGYycA" name="MD5Util" visibility="public"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOoIv9EeemJK1ftGYycA" name="ReflectHelper" visibility="public"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYvOoYv9EeemJK1ftGYycA" name="UUIDUtil" visibility="public"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_IbFksIv9EeemJK1ftGYycA" name="HttpSessionConfig" visibility="public"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Lez0YIv9EeemJK1ftGYycA" name="ProductionConfig" visibility="public"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Le7wMIv9EeemJK1ftGYycA" name="DataSourceConfig" visibility="public">
+    <ownedOperation xmi:id="_Le7wMYv9EeemJK1ftGYycA" name="getDataSource"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_LfE6IIv9EeemJK1ftGYycA" name="Application" visibility="public">
+    <ownedOperation xmi:id="_LfE6IYv9EeemJK1ftGYycA" name="main" isStatic="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_LfMO4Iv9EeemJK1ftGYycA" name="TestConfig" visibility="public">
+    <ownedOperation xmi:id="_LfMO4Yv9EeemJK1ftGYycA" name="getTestDataInitialization"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_LfSVgIv9EeemJK1ftGYycA" name="MyBatisConfig" visibility="public">
+    <ownedAttribute xmi:id="_LfSVgYv9EeemJK1ftGYycA" name="DataSource" visibility="public">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_7oovEIu-EeeW1uN8Q92iuQ"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LfSVgov9EeemJK1ftGYycA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LfSVg4v9EeemJK1ftGYycA" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_LfSVhIv9EeemJK1ftGYycA" name="getMyBatisSqlSessionFactory"/>
+    <ownedOperation xmi:id="_LfSVhYv9EeemJK1ftGYycA" name="getPaginationInterceptor"/>
+    <ownedOperation xmi:id="_LfSVhov9EeemJK1ftGYycA" name="getSqlSessionTemplate"/>
+    <ownedOperation xmi:id="_LfSVh4v9EeemJK1ftGYycA" name="getMapperScannerConfigurer"/>
+    <ownedOperation xmi:id="_LfSViIv9EeemJK1ftGYycA" name="annotationDrivenTransactionManager"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_LfaRUIv9EeemJK1ftGYycA" name="TestDataInitialization" visibility="public">
+    <ownedAttribute xmi:id="_LfaRUYv9EeemJK1ftGYycA" name="SqlSessionTemplate" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LfaRUov9EeemJK1ftGYycA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LfaRU4v9EeemJK1ftGYycA" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_LfaRVIv9EeemJK1ftGYycA" name="dataInit"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_LfgX8Iv9EeemJK1ftGYycA" name="MyBatisMapperScannerConfig" visibility="public">
+    <ownedOperation xmi:id="_LfgX8Yv9EeemJK1ftGYycA" name="getMapperScannerConfigurer"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_WdfIcIv9EeemJK1ftGYycA" client="_LfMO4Iv9EeemJK1ftGYycA" supplier="_LfaRUIv9EeemJK1ftGYycA"/>
+</uml:Model>

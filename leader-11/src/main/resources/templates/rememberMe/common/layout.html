@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head th:fragment="header">
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Spring Security Demo</title>
+
+<!-- Bootstrap Core CSS -->
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+<link th:href="@{/css/signin.css}" rel="stylesheet">
+
+<style>
+body {
+	padding-top: 70px;
+	/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+</style>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<!-- jQuery Version 1.11.1 -->
+<script th:src="@{/components/jquery/jquery.js}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script th:src="@{/components/bootstrap/bootstrap.min.js}"></script>
+
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/components/bootbox/bootbox.min.js}"></script>
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" th:fragment="nav">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Spring Security Demo</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a th:href="@{/rememberMe/welcome}">首页</a></li>
+					<li th:if="${session.SPRING_SECURITY_CONTEXT != null && not #strings.isEmpty(session.SPRING_SECURITY_CONTEXT.authentication.principal.username)}"><a href="#" onclick="logout();">退出</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container -->
+		<form id="logoutForm" th:action="@{/logout}" method="post">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+		</form>
+	</nav>
+</body>
+
+</html>

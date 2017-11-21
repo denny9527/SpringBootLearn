@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head th:replace="~{rememberMe/common/layout :: header}">
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav head th:replace="~{rememberMe/common/layout :: nav}">
+	</nav>
+
+	<!-- Page Content -->
+	<div class="container" id="bodymain">
+		<div class="row" th:unless="${userName == null}">
+			<div class="col-lg-12 text-center">
+				<h1 th:text="${'用户认证授权失败!'"></h1>
+			</div>
+		</div>
+	</div>
+	<!-- /.container -->
+
+</body>
+
+</html>

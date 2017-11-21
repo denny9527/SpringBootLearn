@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.ldcollege.dao.ILdHomeworkFBDao">
+
+    <resultMap id="BaseResultMap" type="edu.ldcollege.domain.LdHomeworkFB">
+        <id column="ID" jdbcType="BIGINT" property="id" />
+        <result column="CORRECT_USER_ID" jdbcType="BIGINT" property="correctUserId" />
+        <result column="USER_ID" jdbcType="BIGINT" property="userId" />
+        <result column="HOMEWORK_ID" jdbcType="BIGINT" property="homeworkId" />
+        <result column="LEVEL_FLAG" jdbcType="CHAR" property="levelFlag" />
+        <result column="APPRAISE_FLAG" jdbcType="CHAR" property="appraiseFlag" />
+        <result column="MARK" jdbcType="VARCHAR" property="mark" />
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="APPRAISE_USER_ACCOUNT" jdbcType="VARCHAR" property="appraiseUserAccount" />
+        <result column="APPRAISE_USER_NAME" jdbcType="VARCHAR" property="appraiseUserName" />  
+    </resultMap>
+
+    <sql id="BASE_COLUMN_LIST">
+        ID, CORRECT_USER_ID, USER_ID, HOMEWORK_ID, LEVEL_FLAG, APPRAISE_FLAG, MARK, CREATE_DATE
+    </sql>
+    
+    <sql id="BASE_ALIAS_COLUMN_LIST">
+        T_H_C.ID, T_H_C.CORRECT_USER_ID, T_H_C.USER_ID, T_H_C.HOMEWORK_ID, T_H_C.LEVEL_FLAG, T_H_C.APPRAISE_FLAG, T_H_C.MARK, T_H_C.CREATE_DATE
+    </sql>
+
+    <sql id="BASE_CONDITION_CLAUSE">
+        <where>
+            <if test="id != null">
+                 and ID = #{id,jdbcType=BIGINT}
+            </if>
+            <if test="correctUserId != null">
+                 and CORRECT_USER_ID = #{correctUserId,jdbcType=BIGINT}
+            </if>
+            <if test="userId != null">
+                 and USER_ID = #{userId,jdbcType=BIGINT}
+            </if>
+            <if test="homeworkId != null">
+                 and HOMEWORK_ID = #{homeworkId,jdbcType=BIGINT}
+            </if>
+            <if test="levelFlag != null and levelFlag != ''">
+                 and LEVEL_FLAG = #{levelFlag,jdbcType=CHAR}
+            </if>
+            <if test="appraiseFlag != null and appraiseFlag != ''">
+                 and APPRAISE_FLAG = #{appraiseFlag,jdbcType=CHAR}
+            </if>
+            <if test="mark != null and mark != ''">
+                 and MARK = #{mark,jdbcType=VARCHAR}
+            </if>
+            <if test="createDate != null">
+                 and CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+    </sql>
+
+    <sql id="BASE_UPDATE_CLAUSE">
+        <set>
+            <if test="correctUserId != null">
+                CORRECT_USER_ID = #{correctUserId,jdbcType=BIGINT},
+            </if>
+            <if test="userId != null">
+                USER_ID = #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="homeworkId != null">
+                HOMEWORK_ID = #{homeworkId,jdbcType=BIGINT},
+            </if>
+            <if test="levelFlag != null and levelFlag != ''">
+                LEVEL_FLAG = #{levelFlag,jdbcType=CHAR},
+            </if>
+            <if test="appraiseFlag != null and appraiseFlag != ''">
+                APPRAISE_FLAG = #{appraiseFlag,jdbcType=CHAR}
+            </if>
+            <if test="mark != null and mark != ''">
+                MARK = #{mark,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+    </sql>
+
+    <sql id="BASE_ORDER_BY">
+        order by
+        <choose>
+            <when test="orderBy != null and orderBy != ''">
+                ${orderBy}
+            </when>
+            <otherwise>
+                ID desc
+            </otherwise>
+        </choose>
+    </sql>
+
+    <insert id="save" parameterType="edu.ldcollege.domain.LdHomeworkFB">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into T_HOMEWORK_CORRECTION (ID, CORRECT_USER_ID, USER_ID, 
+            HOMEWORK_ID, LEVEL_FLAG, APPRAISE_FLAG, MARK, 
+            CREATE_DATE)
+        values (#{id,jdbcType=BIGINT}, #{correctUserId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+            #{homeworkId,jdbcType=BIGINT}, #{levelFlag,jdbcType=CHAR}, #{appraiseFlag,jdbcType=CHAR}, #{mark,jdbcType=VARCHAR}, 
+            #{createDate,jdbcType=TIMESTAMP})
+    </insert>
+
+    <insert id="batchSave" parameterType="java.util.List">
+        insert into T_HOMEWORK_CORRECTION (ID, CORRECT_USER_ID, USER_ID, HOMEWORK_ID, 
+            LEVEL_FLAG, APPRAISE_FLAG, MARK, CREATE_DATE
+            )
+		values
+        <foreach collection="list" index="index" item="item" separator =",">
+            (#{item.correctUserId,jdbcType=BIGINT}, #{item.userId,jdbcType=BIGINT}, #{item.homeworkId,jdbcType=BIGINT}, 
+                #{item.levelFlag,jdbcType=CHAR}, #{appraiseFlag,jdbcType=CHAR}, #{item.mark,jdbcType=VARCHAR}, #{item.createDate,jdbcType=TIMESTAMP})
+        </foreach>
+    </insert>
+
+    <update id="update" parameterType="edu.ldcollege.domain.LdHomeworkFB">
+        update T_HOMEWORK_CORRECTION
+        <include refid="BASE_UPDATE_CLAUSE" />
+        where ID = #{id,jdbcType=BIGINT}
+    </update>
+
+    <delete id="deleteById" parameterType="java.lang.Long">
+        delete from T_HOMEWORK_CORRECTION
+        where ID = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <delete id="deleteByIds" parameterType="java.util.List">
+        delete from T_HOMEWORK_CORRECTION
+        where ID in 
+        <foreach close=")" collection="list" index="index" item="item" open="(" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select 
+        <include refid="BASE_COLUMN_LIST" />
+        from T_HOMEWORK_CORRECTION
+        where ID = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="queryList" parameterType="edu.ldcollege.query.LdHomeworkFBQuery" resultMap="BaseResultMap">
+        select 
+        <include refid="BASE_COLUMN_LIST" />
+        from T_HOMEWORK_CORRECTION
+        <include refid="BASE_CONDITION_CLAUSE" />
+        <include refid="BASE_ORDER_BY" />
+    </select>
+
+    <select id="queryWithPage" parameterType="edu.ldcollege.query.LdHomeworkFBQuery" resultMap="BaseResultMap">
+        select 
+        <include refid="BASE_COLUMN_LIST" />
+        from T_HOMEWORK_CORRECTION
+        <include refid="BASE_CONDITION_CLAUSE" />
+        <include refid="BASE_ORDER_BY" />
+    </select>
+
+    <select id="queryCount" parameterType="edu.ldcollege.query.LdHomeworkFBQuery" resultType="java.lang.Long">
+        select count(*) from T_HOMEWORK_CORRECTION
+        <include refid="BASE_CONDITION_CLAUSE" />
+    </select>
+    
+    <select id="queryHomeworkAppraiseList" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select 
+        <include refid="BASE_ALIAS_COLUMN_LIST" />,
+        T_C.USER_ACCOUNT AS 'APPRAISE_USER_ACCOUNT',
+        T_C.USER_NAME AS 'APPRAISE_USER_NAME'
+        from T_HOMEWORK_CORRECTION T_H_C join T_USER T_C on T_H_C.CORRECT_USER_ID = T_C.ID
+		where T_H_C.HOMEWORK_ID = #{homeworkId,jdbcType=BIGINT}
+    </select>
+</mapper>

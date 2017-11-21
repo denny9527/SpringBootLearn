@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head th:replace="~{user/common/layout :: header}">
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav head th:replace="~{user/common/layout :: nav}"></nav>
+
+	<!-- Page Content -->
+	<div class="container" id="bodymain">
+		<div class="row">
+			<div class="col-md-6">
+				<form class="form-inline">
+					<div class="form-group">
+						<label for="connect">WebSocket 连接:</label>
+						<button id="connect" class="btn btn-default" type="submit">连接</button>
+						<button id="disconnect" class="btn btn-default" type="submit"
+							disabled="disabled">断开连接</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-6">
+				<form class="form-inline">
+					<div class="form-group">
+						<label for="name">请问你的名字?</label> <input type="text"
+							id="name" class="form-control" placeholder="你的名字...">
+					</div>
+					<button id="send" class="btn btn-default" type="submit">发送</button>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<table id="conversation" class="table table-striped">
+					<thead>
+						<tr>
+							<th>问候</th>
+						</tr>
+					</thead>
+					<tbody id="greetings">
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- /.container -->
+
+</body>
+
+</html>
